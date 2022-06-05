@@ -85,7 +85,8 @@ num_list = []
 for c in two_digit_number:
     num_list.append(int(c))
 
-print('{0} + {1} = {2}'.format(num_list[0],num_list[1],sum(num_list)))
+# bad instructions ... makes you think the output should be the equation also
+# print('{0} + {1} = {2}'.format(num_list[0],num_list[1],sum(num_list)))
 print(sum(num_list))
 ```
 
