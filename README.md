@@ -1,11 +1,107 @@
 # Python_Pro_Bootcamp
 
-[link to Udemy Bootcamp](https://www.udemy.com/course/100-days-of-code/learn/lecture/23154980?start=15#overview)
+[🔗 link to Udemy Bootcamp](https://www.udemy.com/course/100-days-of-code/learn/lecture/23154980?start=15#overview)
+
+[🔗 Coding Rooms](https://app.codingrooms.com/management/courses/6387/questions)
 
 ## Section 1: Day 1 - Beginner - Working with Variables in Python to Manage Data
 
+### 1.1  main.py
+```
+#Write your code below this line 👇
+print("Day 1 - Python Print Function")
+print("The function is declared like this:")
+print("print('what to print')")
+```
+>Day 1 - Python Print Function  
+The function is declared like this:  
+print('what to print')
+
+### 1.2 main.py
+```
+#Fix the code below 👇
+
+print(Day 1 - String Manipulation")
+print("String Concatenation is done with the "+" sign.")
+  print('e.g. print("Hello " + "world")')
+print(("New lines can be created with a backslash and n.")
+```
+
+
+#### fixed ⭐
+```
+#Fix the code below 👇
+
+print('Day 1 - String Manipulation')
+print('String Concatenation is done with the \"\+\" sign.')
+print('e.g. print("Hello " + "world")')
+print('New lines can be created with a backslash and n.')
+```
+
+### 1.3 main.py
+```python
+#Write your code below this line 👇
+
+name = input("What is your name?\n")
+print(len(name))
+```
+
+### 1.4 main.py
+```python
+# 🚨 Don't change the code below 👇
+a = input("a: ")
+b = input("b: ")
+# 🚨 Don't change the code above 👆
+
+####################################
+#Write your code below this line 👇
+
+# t is for temp
+t = a 
+a = b
+b = t
+
+#Write your code above this line 👆
+####################################
+
+# 🚨 Don't change the code below 👇
+print("a: " + a)
+print("b: " + b)
+```
+
 
 ## Section 2: Day 2 - Beginner - Understanding Data Types and How to Manipulate Strings
+
+### 2.1 main.py
+```python
+# 🚨 Don't change the code below 👇
+two_digit_number = input("Type a two digit number: ")
+# 🚨 Don't change the code above 👆
+
+####################################
+#Write your code below this line 👇
+
+num_list = []
+for c in two_digit_number:
+    num_list.append(int(c))
+
+print('{0} + {1} = {2}'.format(num_list[0],num_list[1],sum(num_list)))
+print(sum(num_list))
+```
+
+### 2.2 main.py
+```python
+```
+
+### 2.3 main.py
+```python
+```
+
+### 2.4 main.py
+```python
+```
+
+
 ## Section 3: Day 3 - Beginner - Control Flow and Logical Operators
 ## Section 4: Day 4 - Beginner - Randomisation and Python Lists
 ## Section 5: Day 5 - Beginner - Python Loops
