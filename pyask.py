@@ -162,7 +162,7 @@ def ask_file(text='whats the file?:',file_type='.txt',hint='OOPS! something does
             print(hint)
             done = False
 
-def choose_one(choices,text='choose one:',keys=None,verbose=False):
+def choose_one(choices,text='choose one:',verbose=False):
     '''
     '''
 
@@ -172,13 +172,7 @@ def choose_one(choices,text='choose one:',keys=None,verbose=False):
     print(text)
 
     for i, item in enumerate(choices):
-        desc = ''
-        if type(item) == dict or keys != None:
-            for k in keys:
-                desc = desc + ' | ' + k + ': ' + str(item.get(k,'None'))
-        else:
-            desc = item
-        print('     ',i,desc)
+        print('\t',i,item)
     
     done = False
     while done == False:
