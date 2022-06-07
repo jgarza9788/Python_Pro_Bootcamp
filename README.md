@@ -119,22 +119,223 @@ days = round(years * 365)
 print(f"You have {days} days, {weeks} weeks, and {months} months left.")
 ```
 
-### 2.4 main.py
+
+## Section 3: Day 3 - Beginner - Control Flow and Logical Operators
+
+### 3.1 main.py
+```python
+# 🚨 Don't change the code below 👇
+number = int(input("Which number do you want to check? "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+num_type = ''
+if number % 2 == 0:
+    num_type = 'even'
+else:
+    num_type = 'odd'
+
+print('This is an {num_type} number.'.format(num_type=num_type))
+
+```
+
+### 3.2 main.py
+```python
+# 🚨 Don't change the code below 👇
+height = float(input("enter your height in m: "))
+weight = float(input("enter your weight in kg: "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+import math
+
+bmi = math.ceil(weight/ (height*height))
+
+if bmi < 18.5:
+    print(f'Your BMI is {bmi}, you are underweight.')
+elif bmi < 25:
+    print(f'Your BMI is {bmi}, you have a normal weight.')
+elif bmi < 30:
+    print(f'Your BMI is {bmi}, you are slightly overweight.')
+elif bmi < 35:
+    print(f'Your BMI is {bmi}, you are obese.')
+else:
+    print(f'Your BMI is {bmi}, you are clinically obese.')
+```
+
+### 3.4 main.py
+```python
+# 🚨 Don't change the code below 👇
+year = int(input("Which year do you want to check? "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+
+if year % 4 == 0:
+    print('Leap year.')
+else:
+    print('Not leap year.')
+
+```
+
+### 3.4 main.py
+```python
+# 🚨 Don't change the code below 👇
+print("Welcome to Python Pizza Deliveries!")
+size = input("What size pizza do you want? S, M, or L ")
+add_pepperoni = input("Do you want pepperoni? Y or N ")
+extra_cheese = input("Do you want extra cheese? Y or N ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+size_choice = {
+    'S': 15,
+    'M': 20,
+    'L': 25
+    }
+
+add_pepperoni_choice = {
+    'S': {'Y': 2,'N':0},
+    'M': {'Y': 3,'N':0},
+    'L': {'Y': 3,'N':0}
+}
+
+extra_cheese_choice = {
+    'S': {'Y': 1,'N':0},
+    'M': {'Y': 1,'N':0},
+    'L': {'Y': 1,'N':0}
+}
+
+total = 0 
+total += size_choice[size]
+total += add_pepperoni_choice[size][add_pepperoni]
+total += extra_cheese_choice[size][extra_cheese]
+
+print('Your final bill is: $' + str(total) + '.')
+```
+
+### 3.5 main.py
+```python
+# 🚨 Don't change the code below 👇
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+
+both_names = name1 + name2 
+both_names = both_names.upper()
+
+n1 = 0
+for bn in both_names:
+    for l in 'TRUE':
+        if bn == l:
+            n1 += 1
+
+n2 = 0
+for bn in both_names:
+    for l in 'LOVE':
+        if bn == l:
+            n2 += 1
+
+# n1 * = 10 #nah... i'll do it as a string
+total = int(str(n1) + str(n2))
+
+if total < 10 or total > 90:
+    print(f"Your score is {total}, you go together like coke and mentos.")
+elif total > 40 and total < 50:
+    print(f"Your score is {total}, you are alright together.")
+else:
+    print(f"Your score is {total}.")
+
+
+
+```
+
+
+## Section 4: Day 4 - Beginner - Randomisation and Python Lists
+
+
+### 4.1 main.py
+```python
+```
+
+### 4.2 main.py
+```python
+```
+
+### 4.3 main.py
+```python
+```
+
+## Section 5: Day 5 - Beginner - Python Loops
+
+### 5.1 main.py
+```python
+```
+
+### 5.2 main.py
+```python
+```
+
+### 5.3 main.py
+```python
+```
+
+### 5.4 main.py
 ```python
 ```
 
 
-## Section 3: Day 3 - Beginner - Control Flow and Logical Operators
-## Section 4: Day 4 - Beginner - Randomisation and Python Lists
-## Section 5: Day 5 - Beginner - Python Loops
 ## Section 6: Day 6 - Beginner - Python Functions & Karel
 ## Section 7: Day 7 - Beginner - Hangman
 ## Section 8: Day 8 - Beginner - Function Parameters & Caesar Cipher
+
+### 8.1 main.py
+```python
+```
+
+### 8.2 main.py
+```python
+```
+
 ## Section 9: Day 9 - Beginner - Dictionaries, Nesting and the Secret Auction
+
+### 9.1 main.py
+```python
+```
+
+### 9.2 main.py
+```python
+```
+
 ## Section 10: Day 10 - Beginner - Functions with Outputs
+
+### 10.1 main.py
+```python
+```
+
 ## Section 11: Day 11 - Beginner - The Blackjack Capstone Project
 ## Section 12: Day 12  - Beginner - Scope & Number Guessing Game
 ## Section 13: Day 13 - Beginner - Debugging: How to Find and Fix Errors in your Code
+
+### 13.1 main.py
+```python
+```
+
+### 13.2 main.py
+```python
+```
+
+### 13.3 main.py
+```python
+```
+
 ## Section 14: Day 14 - Beginner - Higher Lower Game Project
 ## Section 15: Day 15 - Intermediate - Local Development Environment Setup & the Coffee Machine
 ## Section 16: Day 16  - Intermediate - Object Oriented Programming (OOP)
@@ -148,10 +349,37 @@ print(f"You have {days} days, {weeks} weeks, and {months} months left.")
 ## Section 24: Day 24 - Intermediate - Files, Directories and Paths
 ## Section 25: Day 25 - Intermediate - Working with CSV Data and the Pandas Library
 ## Section 26: Day 26 - Intermediate - List Comprehension and the NATO Alphabet
+
+### 26.1 main.py
+```python
+```
+
+### 26.2 main.py
+```python
+```
+
+### 26.3 main.py
+```python
+```
+
+### 26.4 main.py
+```python
+```
+
+
 ## Section 27: Day 27 - Intermediate - Tkinter, *args, **kwargs and Creating GUI Programs
 ## Section 28: Day 28 - Intermediate - Tkinter, Dynamic Typing and the Pomodoro GUI Application
 ## Section 29: Day 29 - Intermediate - Building a Password Manager GUI App with Tkinter
 ## Section 30: Day 30 - Intermediate - Errors, Exceptions and JSON Data: Improving the Password
+
+### 30.1 main.py
+```python
+```
+
+### 30.2 main.py
+```python
+```
+
 ## Section 31: Day 31 - Intermediate - Flash Card App Capstone Project
 ## Section 32: Day 32 - Intermediate+ Send Email (smtplib) & Manage Dates (datetime)
 ## Section 33: Day 33 - Intermediate+ API Endpoints & API Parameters - ISS Overhead Notifier
@@ -176,7 +404,17 @@ print(f"You have {days} days, {weeks} weeks, and {months} months left.")
 ## Section 52: Day 52 - Intermediate+ Instagram Follower Bot
 ## Section 53: Day 53 - Intermediate+ Web Scraping Capstone - Data Entry Job Automation
 ## Section 54: Day 54 - Intermediate+ Introduction to Web Development with Flask
+
+### 54.1 main.py
+```python
+```
+
 ## Section 55: Day 55 - Intermediate+ HTML & URL Parsing in Flask and the Higher Lower Game
+
+### 55.1 main.py
+```python
+```
+
 ## Section 56: Day 56 - Intermediate+ Rendering HTML/Static files and Using Website Templates
 ## Section 57: Day 57 - Intermediate+ Templating with Jinja in Flask Applications
 ## Section 58: Day 58 - Web Foundation Bootstrap
