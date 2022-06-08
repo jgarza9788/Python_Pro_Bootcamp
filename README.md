@@ -260,35 +260,132 @@ else:
 
 ## Section 4: Day 4 - Beginner - Randomisation and Python Lists
 
-
 ### 4.1 main.py
 ```python
+#Remember to use the random module
+#Hint: Remember to import the random module here at the top of the file. 🎲
+import random	
+
+# 🚨 Don't change the code below 👇
+test_seed = int(input("Create a seed number: "))
+random.seed(test_seed)
+ # 🚨 Don't change the code above 👆 It's only for testing your code.
+	 
+#Write the rest of your code below this line 👇
+
+if random.randint(0,1) == 1:
+    print('Heads')
+else:
+    print('Tails')
 ```
 
 ### 4.2 main.py
 ```python
+import random
+
+# 🚨 Don't change the code below 👇
+test_seed = int(input("Create a seed number: "))
+random.seed(test_seed)
+
+# Split string method
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+n = random.randint(0,len(names)-1)
+print("{0} is going to buy the meal today!".format(names[n]))
 ```
 
 ### 4.3 main.py
 ```python
+# 🚨 Don't change the code below 👇
+row1 = ["⬜️","⬜️","⬜️"]
+row2 = ["⬜️","⬜️","⬜️"]
+row3 = ["⬜️","⬜️","⬜️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+position = input("Where do you want to put the treasure? ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+
+# print(int(position[0]))
+# print(int(position[1]))
+map[int(position[1])-1][int(position[0])-1] ='X'
+
+
+#Write your code above this row 👆
+
+# 🚨 Don't change the code below 👇
+print(f"{row1}\n{row2}\n{row3}")
 ```
 
 ## Section 5: Day 5 - Beginner - Python Loops
 
 ### 5.1 main.py
 ```python
+# 🚨 Don't change the code below 👇
+student_heights = input("Input a list of student heights ").split()
+for n in range(0, len(student_heights)):
+  student_heights[n] = int(student_heights[n])
+# 🚨 Don't change the code above 👆
+
+
+#Write your code below this row 👇
+
+
+print(round(sum(student_heights)/len(student_heights)))
+
+
 ```
 
 ### 5.2 main.py
 ```python
+# 🚨 Don't change the code below 👇
+student_scores = input("Input a list of student scores ").split()
+for n in range(0, len(student_scores)):
+  student_scores[n] = int(student_scores[n])
+print(student_scores)
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+
+
+max_score = max(student_scores)
+print(f"The highest score in the class is: {max_score}")
+
+
 ```
 
 ### 5.3 main.py
 ```python
+#Write your code below this row 👇
+
+print(sum(list(range(2,101,2))))
 ```
 
 ### 5.4 main.py
 ```python
+#Write your code below this row 👇
+
+for i in range(1,101):
+
+    if i % 3 == 0 and  i % 5 == 0:
+        print('FizzBuzz')
+        continue;
+
+    if i %3 == 0:
+        print('Fizz')
+        continue;
+    
+    if i%5 == 0:
+        print('Buzz')
+        continue;
+
+    print(i)
+    
+
 ```
 
 
