@@ -59,6 +59,32 @@ def ask_question(text, datatype):
         except:
             print('it should be a ' + datatype.__name__ + ', try again')
 
+def ask_for_letter(text,exclude_list):
+    '''
+    '''
+    letters = [
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 
+    'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 
+    'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 
+    'Y', 'Z']
+
+    text = str(text)
+    assertIsInstance(str,type,'datatype should be a type (i.e. str, int, float, etc)')
+
+    done = False
+    while done == False:
+        try:
+            i = str(input(text)).upper()
+            if len(i) == 1:
+                if i not in exclude_list:
+                    return i
+                else:
+                    print('you have already guessed that letter')
+                    print(','.join(exclude_list))
+                    
+        except:
+            print('it should be 1 letter (A-Z), try again')
+
 def _process(label,item):
     '''
     '''
