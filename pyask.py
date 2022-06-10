@@ -80,8 +80,10 @@ def ask_for_letter(text,exclude_list):
                     return i
                 else:
                     print('you have already guessed that letter')
-                    print(','.join(exclude_list))
-                    
+                    print('used letters: ',','.join(exclude_list))
+            else:
+                print('it should only be one letter')
+
         except:
             print('it should be 1 letter (A-Z), try again')
 
