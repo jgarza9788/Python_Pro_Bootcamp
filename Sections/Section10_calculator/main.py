@@ -41,7 +41,7 @@ def main():
 
         NN = pyask.ask_question('What\'s the second number?: ',float)
 
-        print('{0} {1} {2}'.format(N,op,NN))
+        print('{0} {1} {2} = '.format(N,op,NN))
 
         N = operations[op](N,NN)
         
