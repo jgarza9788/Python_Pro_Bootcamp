@@ -7,11 +7,11 @@ student_scores = {
 }
 # 🚨 Don't change the code above 👆
 
-#TODO-1: Create an empty dictionary called student_grades.
+# done -- TODO-1: Create an empty dictionary called student_grades.
 # student_grades = {}
 # ^this is not needed
 
-#TODO-2: Write your code below to add the grades to student_grades.👇
+# done -- TODO-2: Write your code below to add the grades to student_grades.👇
 def convert_scores_to_grades(scores):
     # Scores 91 - 100: Grade = "Outstanding"
     # Scores 81 - 90: Grade = "Exceeds Expectations"
