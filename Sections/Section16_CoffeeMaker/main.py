@@ -38,16 +38,8 @@ def main():
             payment_complete = MM.make_payment(drink.cost)
             
         another_order = TF_map[pyask.choose_one(choices=['No','Yes'],text='Another Drink?: ')]
-        
+
 
 
 if __name__ == '__main__':
     main()
-
-    # print([0,1,2,3,4][1::])
-
-    # M = Menu()
-    # print(M.get_items())
-    # print(*M.get_items().split('/')[:-1],sep='\n')
-    # print(type(M.get_items()))
-    # main()
