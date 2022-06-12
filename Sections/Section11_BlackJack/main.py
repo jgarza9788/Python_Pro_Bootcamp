@@ -55,8 +55,6 @@ def main():
     play_another = True
 
     while play_another:
-        
-
         d = deck.copy()
         random.shuffle(d)
 
@@ -89,15 +87,26 @@ def main():
                 another_card = TF_map[pyask.choose_one(choices=['No','Yes'],text='Another card?')]
             print()
 
+        while hand_value(dealers_hand) < 17:
+            dealers_hand.append(d.pop())
+
         players_score = 21 - hand_value(players_hand)
         dealers_score = 21 - hand_value(dealers_hand)
 
-        if players_score < dealers_score and players_score >= 0:
+        if players_score < 0 and dealers_score >= 0:
+            print('BUST {0}'.format(random.choice(['❌','😣','👎','😭','😢','💀'])))
+        elif players_score == dealers_score:
+            print('Draw')
+        elif players_score < 0 and dealers_score < 0:
+            print('Draw - Double BUST')
+        elif players_score < dealers_score:
             print('{0} You Win {0}'.format(random.choice(['⭐','🤩','👍','😁','😎','😉'])))
             print_players_hand(players_hand)
         else:
             print('Sorry, you lost {0}'.format(random.choice(['❌','😣','👎','😭','😢','💀'])))
-
+            print_players_hand(players_hand)
+            print('Dealer\'s hand:')
+            print_hand(dealers_hand)
         print()
 
         play_another = TF_map[pyask.choose_one(choices=['No','Yes'],text='Play another round?')]
