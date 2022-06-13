@@ -99,6 +99,8 @@ def main():
             print('Draw')
         elif players_score < 0 and dealers_score < 0:
             print('Draw - Double BUST')
+        elif dealers_score < 0:
+            print('Dealer BUST, You Win {0}'.format(random.choice(['⭐','🤩','👍','😁','😎','😉'])))
         elif players_score < dealers_score:
             print('{0} You Win {0}'.format(random.choice(['⭐','🤩','👍','😁','😎','😉'])))
             print_players_hand(players_hand)
