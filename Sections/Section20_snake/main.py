@@ -14,7 +14,6 @@ COLORS = [
             "#FD971F",
             "#AE81FF"
         ]
-# snake_color = 0
 
 def get_screen():
     x = Screen()
