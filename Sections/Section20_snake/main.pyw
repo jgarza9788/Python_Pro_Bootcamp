@@ -7,6 +7,11 @@ import turtle
 
 from snake_class import Snake,Food,Twrite
 
+game_state = 0 
+# 0 = pre-game
+# 1 = alive/playing
+# 2 = dead
+
 COLORS = [
             "#66D9EF",
             "#A6E22E",
@@ -33,12 +38,15 @@ def get_distance(sp,fp):
     d = sp - fp
     return math.sqrt((d[0]*d[0])+(d[1]*d[1]))
 
+def start_game():
+    global game_state
+    if game_state == 0:
+        game_state = 1
+
+
+
 def main():
-    # t = Turtle()
-    # t.speed(0)
-    # t.width(5)
-    # t.color('red')
-    # next_color()
+    global game_state
 
     screen = get_screen()
     screen.tracer(0)
@@ -56,17 +64,19 @@ def main():
     screen.onkeypress(key='Down',fun=snake.down)
     screen.onkeypress(key='Right',fun=snake.right)
     screen.onkeypress(key='Left',fun=snake.left)
-    # screen.onkeypress(key='c',fun=next_color)
-    # # screen.onkeypress(key='Right',fun=west)
+    screen.onkeypress(key='Return',fun=start_game)
 
-    alive = True
+
     score = 0
     ot = 0
     t = 0 
     sleep = 0.25
 
+    while game_state == 0:
+        time.sleep(0.1)
+        twrite.write('Press Enter to Start')
 
-    while alive:
+    while game_state == 1 :
         snake.move()
         time.sleep(sleep)
         screen.update()
@@ -79,10 +89,10 @@ def main():
 
 
         if snake.is_out_of_window(width = screen.window_width(), height=screen.window_height() ) :
-            alive = False
+            game_state = 2
 
         if snake.is_overlap():
-            alive = False
+            game_state = 2
 
         # print(snake.get_head_pos())
         
@@ -92,7 +102,6 @@ def main():
             print('score: {0} \n sleep: {1}'.format(score,sleep),end='\r')
             food.move()
         
-        twrite.t.clear()
         twrite.write('score: {0:,.0f}'.format(score))
         
 

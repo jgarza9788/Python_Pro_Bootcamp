@@ -1,8 +1,7 @@
 
 import random
 from turtle import Turtle, Screen, pos
-from unittest import result
-# import turtle
+
 
 class Snake:
 
@@ -24,6 +23,7 @@ class Snake:
             self.turtles.append(s)
         
         self.right()
+    
         
     def get_size(self):
         return len(self.turtles)
