@@ -119,9 +119,11 @@ def main():
         if math.fabs(ball.t.pos()[0]) > (maxX*0.75):
             if collision(p1.get_all_positions(),ball.t.pos()):
                 ball.change_x_dir()
+                ball.move()
                 paddle_bounce_count += 1
             elif collision(p2.get_all_positions(),ball.t.pos()):
                 ball.change_x_dir()
+                ball.move()
                 paddle_bounce_count += 1
 
         screen.update()
