@@ -166,7 +166,7 @@ class Ball:
         self.dir = [d[0],d[1]*-1]
 
     def change_x_dir(self):
-        self.increase_speed()
+        # self.increase_speed()
         d = self.dir
         self.dir = [d[0]*-1,d[1]]
 
@@ -224,14 +224,14 @@ class Ball:
         x *= s
         return [x,y]
     
-    def increase_speed(self):
-        s = self.get_speed()
-        y = math.sin(self.get_angle())
-        x = math.cos(self.get_angle())
-        s = self.get_speed() * self.in_speed
-        y *= s
-        x *= s
-        self.dir = [x,y]
+    # def increase_speed(self):
+    #     s = self.get_speed()
+    #     y = math.sin(self.get_angle())
+    #     x = math.cos(self.get_angle())
+    #     s = self.get_speed() * self.in_speed
+    #     y *= s
+    #     x *= s
+    #     self.dir = [x,y]
 
     
     # def increase_speed(self):
