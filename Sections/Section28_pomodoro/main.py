@@ -28,15 +28,16 @@ STATES = [
     {'name': 'break3','seconds': (20*60), 'color': RED ,'checks':'✅✅✅'},
 ]
 
-STATES = [
-    {'name': 'not started','seconds': 0, 'color':YELLOW, 'checks':'🔲🔲🔲'},
-    {'name': 'work1','seconds': (2.5), 'color': GREEN ,'checks':'🔲🔲🔲'},
-    {'name': 'break1','seconds': (0.5), 'color': PINK ,'checks':'✅🔲🔲'},
-    {'name': 'work2','seconds': (2.5), 'color': GREEN ,'checks':'✅🔲🔲'},
-    {'name': 'break2','seconds': (0.5), 'color': PINK ,'checks':'✅✅🔲'},
-    {'name': 'work3','seconds': (2.5), 'color': GREEN ,'checks':'✅✅🔲'},
-    {'name': 'break3','seconds': (2.0), 'color': RED ,'checks':'✅✅✅'},
-]
+# # used for testing
+# STATES = [
+#     {'name': 'not started','seconds': 0, 'color':YELLOW, 'checks':'🔲🔲🔲'},
+#     {'name': 'work1','seconds': (2.5), 'color': GREEN ,'checks':'🔲🔲🔲'},
+#     {'name': 'break1','seconds': (0.5), 'color': PINK ,'checks':'✅🔲🔲'},
+#     {'name': 'work2','seconds': (2.5), 'color': GREEN ,'checks':'✅🔲🔲'},
+#     {'name': 'break2','seconds': (0.5), 'color': PINK ,'checks':'✅✅🔲'},
+#     {'name': 'work3','seconds': (2.5), 'color': GREEN ,'checks':'✅✅🔲'},
+#     {'name': 'break3','seconds': (2.0), 'color': RED ,'checks':'✅✅✅'},
+# ]
 
 
 def increment_state():
