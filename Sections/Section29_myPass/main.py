@@ -4,6 +4,7 @@ import sys
 import password_generator as pg
 from tkinter import *
 from tkinter import messagebox
+import pyperclip
 
 # ---------------------------- CONSTANTS ------------------------------- #
 
@@ -17,7 +18,9 @@ WHITE ='#ffffff'
 
 def generate_password():
     password_field.delete(0,END)
-    password_field.insert(0,str(pg.get_password(4,4,4)))
+    new_pw = str(pg.get_password(4,4,4))
+    password_field.insert(0,new_pw)
+    pyperclip.copy(new_pw)
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
@@ -27,7 +30,6 @@ def save():
     password = password_field.get()
 
     answer = messagebox.askyesno(title=website,message=f"These are the details entered:\nEmail: {email}\nPassword: {password}\nIs this ok to save?")
-    # print(answer)
 
     if answer:
         if len(website) > 0 and len(email) > 0 and len(password) > 0 :
