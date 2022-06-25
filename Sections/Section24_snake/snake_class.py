@@ -11,7 +11,11 @@ class Snake:
         self.color = color
         # self.speed = 0 # 0, 1, 2 , 3, 4
         # self.direction = 0
+
+        # if the user does a uturn too fast the snake dies...
+        # having an ols_shift and checking to prevent stops this bug
         self.shift = [0,0]
+        self.old_shift = [0,0]
         
         self.turtles = self.create_snake(size=3)
         
@@ -54,6 +58,7 @@ class Snake:
             t.goto(self.pos[i])
 
         self.pos = self.pos[:self.get_size()]
+        self.old_shift = self.shift
 
     def grow(self):
         n = Turtle()
@@ -69,25 +74,40 @@ class Snake:
         # self.direction = 90
         if self.shift == [0,-20]:
             return 0
+        if self.old_shift != self.shift:
+            return 0
 
+        self.old_shift = self.shift
         self.shift = [0,20]
 
     def down(self):
         # self.direction = -90
         if self.shift == [0,20]:
             return 0
+        if self.old_shift != self.shift:
+            return 0
+
+        self.old_shift = self.shift
         self.shift = [0,-20]
 
     def right(self):
         # self.direction = 0
         if self.shift == [-20,0]:
             return 0
+        if self.old_shift != self.shift:
+            return 0
+
+        self.old_shift = self.shift
         self.shift = [20,0]
 
     def left(self):
         # self.direction = 180
         if self.shift == [20,0]:
             return 0
+        if self.old_shift != self.shift:
+            return 0
+
+        self.old_shift = self.shift          
         self.shift = [-20,0]
 
     def is_out_of_window(self,width=600,height=600):
