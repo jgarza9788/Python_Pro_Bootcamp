@@ -2,6 +2,7 @@ dont_sync/
 downloaded_resources/
 *.zip
 *.pdf
+*config.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
