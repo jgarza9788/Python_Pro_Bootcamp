@@ -1,7 +1,7 @@
 
 # rain on pythonanywhere.com
 
-
+import os
 from weather_to_nerdfont import get_nf_icon # to get cool weather icons
 import requests
 from twilio.rest import Client
@@ -75,8 +75,8 @@ def get_umbrella(data=None,three_hour_times = 8):
         return ''
 
 def main():
-    account = "AC34aac68cc548899af9859e92cd7f38f8"
-    token = "2a9d15b051279e15dc7421ddf6723338"
+    account = os.environ("OWM_ACCOUNT")
+    token = os.environ("OWM_API_KEY")
     client = Client(account, token)
 
     data = get_weather_data()
