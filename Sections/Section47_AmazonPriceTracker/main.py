@@ -3,8 +3,9 @@ import os, sys
 from bs4 import BeautifulSoup as bs
 import requests
 
-# import yagmail 
-
+from email.message import EmailMessage
+import ssl
+import smtplib
 
 def main(data):
     # get price
@@ -18,18 +19,43 @@ def main(data):
     price = float(p1.text.replace('$',''))
     print('the price is {}'.format(price))
 
-    """
-    if error sending email:
-        https://www.google.com/settings/security/lesssecureapps
-    use TWILIO or automate it with Selenium
-    """
-    # if price <= data['less_than_price']:
-        # yagmail.register(data['email'], data['password'])
-        # yag = yagmail.SMTP(data['email'])
-        # contents = 'the price is below {less_than_price} \n {url}'.format(
-        #     less_than_price=data['less_than_price'],
-        #     url=data['AmazonURL'])
-        # yag.send(data['email'], subject = "price alert", contents = contents)
+    #stop the code if the price greater than less_than_price
+    if price > data['less_than_price']:
+        return 
+
+    # https://www.youtube.com/watch?v=g_j6ILT-X0k
+    em = EmailMessage()
+    em['From'] = data['email']
+    em['To'] = 'JGarza9788@gmail.com'
+    em['Subject'] = 'Price Alert'
+    body = 'the price is below {less_than_price} \n {url}'.format(
+            less_than_price=data['less_than_price'],
+            url=data['AmazonURL'])
+    em.set_content(body)
+
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP_SSL('smtp.gmail.com',465,context=context) as smtp:
+        smtp.login(data['email'],data['password'])
+        smtp.sendmail(
+            em['From'], em['To'], em.as_string()
+            )
+
+    
+
+    # """
+    # if error sending email:
+    #     https://www.google.com/settings/security/lesssecureapps
+    # use TWILIO or automate it with Selenium
+    # """
+    # import yagmail 
+    # # if price <= data['less_than_price']:
+    #     # yagmail.register(data['email'], data['password'])
+    #     # yag = yagmail.SMTP(data['email'])
+    #     # contents = 'the price is below {less_than_price} \n {url}'.format(
+    #     #     less_than_price=data['less_than_price'],
+    #     #     url=data['AmazonURL'])
+    #     # yag.send(data['email'], subject = "price alert", contents = contents)
 
 
 
