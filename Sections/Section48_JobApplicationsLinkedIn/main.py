@@ -13,13 +13,18 @@ def get_browser(visible= True):
     #options
     options = webdriver.ChromeOptions()
     options.add_argument('test-type')
+    # options.add_argument("--no-sandbox") # no sandboxing
+    # chrome_options.add_argument("--load-extension=" + unpackedExtensionPath)
     options.add_argument('--js-flags=--expose-gc')
     options.add_argument('--enable-precise-memory-info')
     options.add_argument('--disable-popups-blocking')
     options.add_argument('--disable-default-apps')
     options.add_argument('test-type=browser')
     options.add_argument('disable-infobars')
-    options.add_argument('window-size=800x600')
+    # options.add_argument('window-size=800x600')
+    # options.add_argument('window-size=1600x1200')
+    options.add_argument('start-maximized')
+    # options.add_argument('--kiosk')
     options.add_argument('log-level=3')
     # options.add_argument("user-data-dir=C:\\Users\\JGarza\\AppData\\Local\\Google\\Chrome\\User Data\\Default") 
 
@@ -156,6 +161,8 @@ def main():
 
     goto_jobs(browser,cd['search'],cd['location'],Onsite,Remote,Hybrid)
     count = apply_to_all(browser)
+
+    #result 
     print('applied to ',count, ' jobs')
 
 
