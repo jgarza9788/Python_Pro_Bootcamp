@@ -1,4 +1,4 @@
-from lib2to3.pgen2.token import LESS
+
 import os, sys
 from bs4 import BeautifulSoup as bs
 import requests
