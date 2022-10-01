@@ -122,6 +122,12 @@ def like(browser,times=100):
                 except:
                     pass
 
+                try:
+                    tinderplus = browser.find_element_by_css_selector('button[class="button Lts($ls-s) Z(0) CenterAlign Mx(a) Cur(p) Tt(u) Ell Bdrs(100px) Px(24px) Px(20px)--s Py(0) Mih(42px)--s Mih(50px)--ml Pos(r) Ov(h) C(#fff) Bg($c-pink):h::b Bg($c-pink):f::b Bg($c-pink):a::b Trsdu($fast) Trsp($background) Bg($g-ds-background-brand-gradient) button--primary-shadow StyledButton Bxsh($bxsh-btn) Fw($semibold) focus-button-style My(20px)--ml Mb(10px)--s W(100%)"]')
+                    tinderplus.click()
+                except:
+                    pass
+
         time.sleep(1)
 
 
