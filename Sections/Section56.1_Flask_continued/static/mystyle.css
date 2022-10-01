@@ -1,0 +1,56 @@
+
+/* 
+css selectors
+
+nothing for tags
+. for class
+# for id
+
+*/
+
+body{
+    background-color: #1c1c1c;
+    margin: 50px;
+}
+
+h1,h2,h3,h4,p, a {
+    color: #c1c1c1;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 4px;
+}
+
+h1{
+    margin-top: 32px;
+}
+
+h2, h3{
+    margin-top: 16px;
+}
+
+chip {
+    display: inline-block;
+    padding: 0 5px;
+    /* height: 50px; */
+    /* font-size: 16px; */
+    /* line-height: 50px; */
+    border-radius: 25px;
+    background-color: #1c1c1c;
+    /* stroke-color: #00bbbb; */
+    /* stroke-width: 5px; */
+    color: #c1c1c1;
+}
+
+td{
+    padding: 10px;
+}
+
+
+a {
+    color: #00bbbb
+}
+
+#profilepicture
+{
+    border-radius: 50%;
+}
