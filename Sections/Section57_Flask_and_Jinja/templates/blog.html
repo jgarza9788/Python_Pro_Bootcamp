@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+</head>
+<body>
+    <h1>Blog</h1>
+    <!-- <h1>5 * 6 = {{5*6}}</h1> -->
+    <!-- <h1>Random Number: {{num}}</h1> -->
+    {%for bp in blog_posts%}
+
+    {% if -1 == num %}
+      <h2>{{bp["title"]}}</h2>
+      <h3>{{bp["subtitle"]}}</h3>
+      <p>{{bp["body"]}}</p>
+    {% endif %}
+
+    {% if bp["id"] == num %}
+      <h2>{{bp["title"]}}</h2>
+      <h3>{{bp["subtitle"]}}</h3>
+      <p>{{bp["body"]}}</p>
+    {% endif %}
+
+    {%endfor%}
+</body>
+<footer>
+  <!-- <p>CopyRight {{year}}: Justin Garza</p> -->
+</footer>
+</html>
