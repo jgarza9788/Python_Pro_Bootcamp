@@ -1,0 +1,30 @@
+
+
+/* 
+. class
+# id
+_ tag
+*/
+
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#title{
+    background-color: #ff4c68;
+}
+
+h1, h2, h3, p{
+    
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat'; */
+    font-weight: 900 !important; 
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+.container-fluid {
+    padding: 3% 15%;
+}
+

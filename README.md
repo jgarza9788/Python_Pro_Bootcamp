@@ -517,8 +517,6 @@ for i in range(1,101):
 ### edit in chrome
 chrome -> website -> dev tools -> console -> `document.body.contentEditable = true` (this is js)
 
-
-
 ## Section 57: Day 57 - Intermediate+ Templating with Jinja in Flask Applications
 ## Section 58: Day 58 - Web Foundation Bootstrap
 ## Section 59: Day 59 - Advanced - Blog Capstone Project Part 2 - Adding Styling
