@@ -16,7 +16,7 @@ def main(data):
     p1 = p0.findAll("span", attrs={"class": "a-offscreen"})[0]
     print(p1.text)
 
-    price = float(p1.text.replace('$',''))
+    price = float(p1.text.replace('$','').replace(',',''))
     print('the price is {}'.format(price))
 
     #stop the code if the price greater than less_than_price
