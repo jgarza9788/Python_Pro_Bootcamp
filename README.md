@@ -519,6 +519,10 @@ chrome -> website -> dev tools -> console -> `document.body.contentEditable = tr
 
 ## Section 57: Day 57 - Intermediate+ Templating with Jinja in Flask Applications
 ## Section 58: Day 58 - Web Foundation Bootstrap
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/Adding_z-index
+
+
 ## Section 59: Day 59 - Advanced - Blog Capstone Project Part 2 - Adding Styling
 ## Section 60: Day 60 - Advanced - Make POST Requests with Flask and HTML Forms
 ## Section 61: Day 61 - Advanced - Building Advanced Forms with Flask-WTForms

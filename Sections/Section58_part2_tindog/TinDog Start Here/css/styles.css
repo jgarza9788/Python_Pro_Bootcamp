@@ -7,24 +7,231 @@ _ tag
 */
 
 
+
+
 body{
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
+
 
 #title{
     background-color: #ff4c68;
-}
-
-h1, h2, h3, p{
-    
-    font-family: 'Montserrat', sans-serif;
-    /* font-family: 'Montserrat'; */
-    font-weight: 900 !important; 
-    font-size: 3rem;
-    line-height: 1.5;
+    color: white;
+    text-align: left !important;
 }
 
 .container-fluid {
-    padding: 3% 15%;
+    padding: 3% 3% 15% 7%;
+    /* padding: 10px 25px 50px 50px !important; */
 }
 
+h1{
+    color: white;
+    font-weight: 900 !important; 
+    font-size: 4rem !important;
+    line-height: 1.5 !important;
+    /* text-align: left !important; */
+    padding-bottom: 2.50rem !important;
+}
+
+
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900 !important;
+    font-size: 3rem !important;
+    line-height: 1.5 !important;
+
+}
+
+h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900    !important;
+    font-size: 2rem !important;
+    line-height: 1.5 !important;
+}
+
+h4{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900    !important;
+    font-size: 1.5rem !important;
+    line-height: 1.5 !important;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal    !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+}
+
+/* 
+h1, h2, h3, p{
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900 !important; 
+    font-size: 3rem;
+    line-height: 1.5;
+} 
+*/
+
+/* Nav Bar */
+.navbar{
+    padding-bottom: 0rem 4.5rem !important;
+}
+
+.navbar-brand{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5rem !important;    ;
+    font-weight: 900 !important;
+
+}
+
+.nav-item{
+    padding: 0px 18px;
+}
+
+.nav-link{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem !important;    ;
+    font-weight: 400 !important;
+}
+
+/* title image */
+
+.title-image {
+    padding: 10px;
+    width: 60%;
+    transform: rotate(30deg);
+    position: absolute;
+    display: block;
+}
+
+@media (max-width: 990px) {
+    .title-image {
+        transform: rotate(0deg);
+        position: static;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #title{
+        text-align: center !important;
+    }
+} 
+
+
+/* features */
+
+#features {
+    padding: 10rem 5rem !important;
+    position: relative;
+    /* z-index: 1; */
+    background-color: white !important;
+}
+
+
+#features div div{
+    text-align: center;
+}
+
+#features p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400    !important;
+}
+
+#features i{
+    color: #ff4c68;
+    font-size: 5rem !important;
+}
+
+#features i:hover{
+    color: #ff3452
+}
+
+/* Testimonials */
+
+#testimonials {
+    padding: 10rem 5rem !important;
+    text-align: center;
+    background-color: #ff4c68;
+    color: white;
+}
+
+.testimonial-image{
+    width: 10%;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+#press{
+    background-color: #ff4c68;
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+.press-image{
+    width: 15%;
+    margin: 20px 20px 50px;
+}
+
+#pricing {
+    padding: 100px !important;
+}
+
+.card-title {
+    text-align: center !important;
+    font-weight: normal !important;
+    color: black
+}
+
+.card {
+    padding: 0px !important;
+    /* margin: 3% 1% !important; */
+    text-align: center !important;
+}
+
+.box-shadow {
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 5%);
+}
+
+#cta {
+    padding: 250px 100px !important;
+    background-color: #ff4c68;
+    color: white;
+}
+
+#cta .btn {
+    margin: 25px 10px !important;
+}
+
+/*
+.btn-apple {
+    background-color: #006ee6 !important;
+    color: white    !important;
+}
+
+.btn-android {
+    background-color: #4cb24f !important;
+    color: white    !important;
+}
+
+.btn-apple:hover{
+    background-color: #007bff !important;
+}
+
+.btn-android:hover{
+    background-color: #42c547 !important;
+} 
+*/
+
+
+#footer {
+    text-align: center;
+    padding: 25px 12px;
+    color: grey !important;
+}
+
+#footer a {
+    padding: 12px;
+    color: grey !important;
+}
