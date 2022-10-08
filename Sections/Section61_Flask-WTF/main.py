@@ -11,14 +11,9 @@ class LoginForm(FlaskForm):
     submit = SubmitField(label='Log In')
 
 
-def create_app():
-    app = Flask(__name__)
-    Bootstrap(app)
-    return app
-
-# app = Flask(__name__)
-app = create_app()
+app = Flask(__name__)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
+Bootstrap(app)
 
 
 @app.route("/")
