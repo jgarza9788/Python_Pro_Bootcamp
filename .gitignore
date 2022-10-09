@@ -3,6 +3,7 @@ downloaded_resources/
 *.zip
 *.pdf
 *config.json
+*private_variables.py
 
 *tempCodeRunnerFile.py
 
