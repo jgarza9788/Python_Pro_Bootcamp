@@ -50,6 +50,7 @@ fastjsonschema                    2.16.1
 Flask                             2.2.2
 Flask-Bootstrap                   3.3.7.1
 Flask-CKEditor                    0.4.6
+Flask-Login                       0.6.2
 Flask-SQLAlchemy                  3.0.0
 Flask-WTF                         1.0.1
 flit_core                         3.7.1
