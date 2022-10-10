@@ -530,7 +530,27 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z
 ## Section 63: Day 63 - Advanced - Databases and with SQLite and SQLAlchemy
 ## Section 64: Day 64 - Advanced -My Top 10 Movies Website
 ## Section 65: Day 65 - Web Design School - How to Create a Website that People will Love
+[color hunt](https://colorhunt.co/palettes/popular)
+
 ## Section 66: Day 66 - Advanced - Building Your Own API with RESTful Routing
+**Re**presentable
+**S**tate 
+**T**ransfer
+
+GET  
+POST  
+PUT  
+PATCH  
+DELETE  
+
+Create NEW record =>POST  
+read=>GET  
+If the record exists then update else create a new record=>PUT  
+update/modify=>PATCH  
+delete=>DELETE  
+
+
+
 ## Section 67: Day 67 - Advanced - Blog Capstone Project Part 3 - RESTful Routing
 ## Section 68: Day 68 - Advanced - Authentication with Flask
 ## Section 69: Day 69 - Advanced - Blog Capstone Project Part 4 - Adding Users
