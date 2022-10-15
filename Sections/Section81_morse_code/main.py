@@ -40,7 +40,6 @@ alpha_to_morse = {
 }
 morse_to_alpha = { v:k for (k,v) in alpha_to_morse.items() }
 
-
 def is_alpha(string):
     len0 = len(string)
     string = string.replace('-','').replace('.','').replace(' ','')
@@ -60,13 +59,11 @@ def convert_0(string, lu_dict):
 
     return result
 
-
 def convert(string):
     if is_alpha(string):
         return convert_0(string,alpha_to_morse)
     else:
         return convert_0(string,morse_to_alpha)
-
 
 def main():
     print('morse_code\n',convert('morse_code'))

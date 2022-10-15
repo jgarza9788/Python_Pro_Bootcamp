@@ -1,0 +1,29 @@
+
+
+
+h1, h2, h3, h4, h5, h6, p, a
+{
+    font-family: 'Roboto' !important;
+}
+
+.navbar,.container {
+    height: 100px !important;
+    width: 100% !important;
+}
+
+.navbar-brand, .logo {
+    height: 100% !important;
+    width: auto !important;
+}
+
+.logo {
+    height: 100% !important;
+    width: auto !important;
+}
+
+.navbar-collapse {
+    /* background-color: white !important; */
+    border-radius: 10px;
+    padding: 10px !important;
+    width: 50% !important;
+}
