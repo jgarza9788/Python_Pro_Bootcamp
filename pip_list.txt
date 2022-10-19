@@ -57,6 +57,7 @@ Flask-WTF                         1.0.1
 flit_core                         3.7.1
 fonttools                         4.33.3
 future                            0.18.2
+fuzzywuzzy                        0.18.0
 gevent                            20.6.2
 gevent-websocket                  0.10.1
 greenlet                          0.4.16
@@ -93,6 +94,7 @@ jupyterlab-pygments               0.2.2
 jupyterlab_server                 2.15.1
 jupyterthemes                     0.20.0
 kaitaistruct                      0.9
+keyboard                          0.13.5
 keyring                           23.8.2
 kiwisolver                        1.4.3
 lesscpy                           0.15.0
@@ -149,6 +151,7 @@ pyOpenSSL                         22.0.0
 pyparsing                         3.0.9
 pyperclip                         1.8.2
 pyrsistent                        0.18.1
+PySimpleGUI                       4.60.4
 PySocks                           1.7.1
 python-csv                        0.0.13
 python-dateutil                   2.8.2

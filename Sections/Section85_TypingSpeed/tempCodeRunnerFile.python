@@ -1,0 +1,2 @@
+window['Go'].bind("<Button-3>", ' +RIGHT CLICK+')
+# window['-IN2-'].bind("<FocusIn>", ' +FOCUS+')
