@@ -1,3 +1,4 @@
+# this is just so i can see the fonts
 from tkinter import Tk, font
 
 root = Tk()
