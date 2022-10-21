@@ -1,0 +1,37 @@
+
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+
+      <a href="{{ url_for('home')}}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-color--blue mdl-js-ripple-effect">
+        <i class="mdi mdi-keyboard-backspace"> back </i>
+      </a>
+
+      <!-- Title -->      
+      <!-- <span class="mdl-layout-title"><i class="mdi mdi-coffee"></i> Café</span> -->
+      <div class="mdl-layout-spacer"></div>
+
+    </div>
+  </header>
+</div>
+
+
+
+{% block content %}
+<main>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h3>Add a new cafe into the database</h3>
+
+      {{ wtf.quick_form(form, novalidate=True) }}
+
+    </div>
+  </div>
+</div>
+</main>
+{% endblock %}

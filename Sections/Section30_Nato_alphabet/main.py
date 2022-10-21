@@ -29,7 +29,7 @@ import pyask
 # # Keyword Method with iterrows()
 # # {new_key:new_value for (index, row) in df.iterrows()}
 
-#TODO 1. Create a dictionary in this format:
+# 1. Create a dictionary in this format:
 {"A": "Alfa", "B": "Bravo"}
 
 alpha_file = os.path.join(DIR,'nato_phonetic_alphabet.csv')
@@ -50,7 +50,7 @@ for (index,row) in alphabet.iterrows():
     alpha_dict[row['letter']] = row['code']
 
 
-#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+# 2. Create a list of the phonetic code words from a word that the user inputs.
 
 user_input = pyask.ask_question('please provide a word:\n',str)
 result = []

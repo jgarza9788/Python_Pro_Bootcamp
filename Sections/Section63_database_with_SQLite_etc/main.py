@@ -25,6 +25,7 @@ with app.app_context():
 def home():
     ##READ ALL RECORDS
     all_books = db.session.query(Book).all()
+    print(type(all_books))
     return render_template("index.html", books=all_books)
 
 

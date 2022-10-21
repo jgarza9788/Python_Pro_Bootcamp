@@ -1,0 +1,102 @@
+/* This CSS file will need to be added to the styling of 
+your web pages for the styles to be rendered. */
+
+body {
+
+  background: url('coffee-dark.png');
+  /* filter: brightness(25%); */
+  /* background-color: blue; */
+
+  display: flex;
+  flex-direction: column;
+  height: 100hv;
+  width: auto;
+
+
+}
+
+.mdl-layout__container
+{
+  height: 64px;
+} 
+
+.mdl-layout{
+  height: 64px;
+}
+
+.mdl-data-table
+{
+  /* background-color: #ff5555; */
+  background-color: #795548;
+  width: 100%;
+}
+
+.text-bold{
+  font-weight: 900 !important;
+}
+
+.delete{
+  color: red;
+  font-size: 24px;
+}
+
+main{
+  margin: 64px;
+  margin-top: 128px;
+  width: auto;
+  height: auto;;
+}
+
+.add-btn
+{
+  display: float !important;
+  top: 92px;
+  right: -92px;
+  margin: 0;
+}
+
+
+h3, label, td{
+  color: white
+}
+
+tr:hover td{
+  color: #452f28
+}
+
+.help-block{
+  color: red !important;
+}
+
+label{
+  display: inline-block;
+  width: 250px;
+}
+
+input,select{
+  /* margin-left: 100px; */
+  display: inline-block;
+  width: 150px;
+}
+
+#submit{
+  margin: 10px 0px;
+  padding: 5px;
+  display: inline-block;
+  width: 400px;
+  background-color: #2196f3;
+  color: white;
+}
+
+/* .mdl-data-table, 
+th, 
+tr, 
+td, 
+.mdl-checkbox__input,
+.mdl-checkbox__ripple-container,
+.mdl-checkbox__box-outline,
+.mdl-checkbox__focus-helper
+{
+  background-color: transparent;
+  color:white !important;
+} */

@@ -1,0 +1,64 @@
+
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->      
+      <span class="mdl-layout-title"><i class="mdi mdi-coffee"></i> Café</span>
+      <div class="mdl-layout-spacer"></div>
+
+
+      <a href="{{ url_for('add')}}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">add</i>
+      </a>
+
+    </div>
+  </header>
+</div>
+
+
+
+<main >
+
+  <!-- <div class="container"> -->
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+
+        {% for cafe in cafes %}
+        
+          {% if cafes[0].id == 1 %}
+          <tr>
+            <td>Name</td>
+            <td>Location</td>
+            <td>Open</td>
+            <td>Close</td>
+            <td>Coffee Rating</td>
+            <td>Wifi Rating</td>
+            <td>Power Rating</td>
+          </tr>
+          {%endif%}
+        <tr>
+          <td>{{cafe.name}}</td>
+          <td><a class="mdi mdi-map-marker" href="{{cafe.location}}"> Map </a></td>
+          <td>{{cafe.open}}</td>
+          <td>{{cafe.close}}</td>
+          <td>{{cafe.coffee_rating}}</td>
+          <td>{{cafe.wifi_rating}}</td>
+          <td>{{cafe.power_rating}}</td>
+          <td><a href="{{ url_for('delete', id=cafe.id) }}"><i class="mdi mdi-delete-forever delete"></i></a></td>
+          <td><a href="{{ url_for('edit', id=cafe.id) }}"><i class="mdi mdi-pen"></i></a></td>
+        </tr>
+        {% endfor %}
+
+
+
+    </table>
+
+
+
+  <!-- </div> -->
+
+
+  
+</main>

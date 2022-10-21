@@ -77,7 +77,7 @@ if abs(diff_percent) > 1:
     #Send each article as a separate message via Twilio.
     client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 
-    #TODO 8. - Send each article as a separate message via Twilio.
+    # 8. - Send each article as a separate message via Twilio.
     # this section is outdated ... please see Section35_RainAlert for the proper syntax
     for article in formatted_articles:
         message = client.messages.create(

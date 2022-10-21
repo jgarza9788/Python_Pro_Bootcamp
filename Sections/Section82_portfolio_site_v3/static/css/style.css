@@ -15,7 +15,13 @@
     --gn: #a6e22e;
 }
 
-
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100hv;
+    margin: 0;
+    overflow: hidden;
+}
 
 h1, h2, h3, h4, h5, h6, p, a
 {
@@ -164,7 +170,9 @@ h1, h2, h3, h4, h5, h6, p, a
     color: #fff;
     background-color: #66d9ef;
     border-color: #66d9ef;
+    padding: auto !important;
 }
+
 .nav-md-btn:hover {
     color: #fff;
     background-color: #4ea6b7;
@@ -174,4 +182,41 @@ h1, h2, h3, h4, h5, h6, p, a
 .text-center {
     text-align: center !important;
     width: 100%;
+}
+
+.wide {
+    height: 52px !important;
+    width: 100% !important;
+}
+
+
+.content, .container{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.resume {
+    background-color: #525659;
+}
+
+.contact {
+    background-color: #525659;
+}
+
+.contact-card{
+    margin: 1em !important
+}
+
+h1 {
+    margin: 1em !important;
+}
+
+.contact-info {
+    width: 100%;
+}
+
+.con-pills {
+    list-style-type: none;
+    margin: 12px 24px;
+    padding: 0px;
 }
