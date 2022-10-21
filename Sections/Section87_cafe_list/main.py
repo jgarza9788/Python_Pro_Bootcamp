@@ -1,8 +1,4 @@
 
-#TODO: add sqlite database
-#TODO:  add edit page?
-
-from enum import unique
 from flask import Flask, render_template, request, redirect, url_for
 
 # UI/CSS
