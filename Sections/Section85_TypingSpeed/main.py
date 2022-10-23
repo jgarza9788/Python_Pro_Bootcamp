@@ -2,7 +2,6 @@
 
 import os
 import time
-from weakref import finalize
 import requests, json, random
 from fuzzywuzzy import fuzz
 # import nerdfonts as nf

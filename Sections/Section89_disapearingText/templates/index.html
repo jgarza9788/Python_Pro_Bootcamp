@@ -1,0 +1,77 @@
+
+{% include "header.html" %}
+
+
+<!-- As a heading -->
+<nav class="navbarx bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1 text-light">
+      <i id="title" class="mdi mdi-ghost"> Ghost Text:</i>
+       <a id="time"> 1min </a>
+    </span>
+  </div>
+  <div class="container-fluid">
+    <p class="text-light text-muted">Text will disappear after typing for 1min</p>
+  </div>
+</nav>
+
+<script>
+var timeOn = 0;
+var time = 60 ;
+
+elm_time = document.getElementById("time");
+
+setInterval(function name(){ 
+
+  if (timeOn == 1)
+  {
+    time -= 1;
+    elm_time.innerHTML = time.toString();
+  }
+
+  if (time <= 10)
+  {
+    elm_time.classList.add("text-danger")
+  }
+
+  if (time <= 30)
+  {
+    elm_time.classList.add("text-warning")
+  }
+
+  if (time > 30)
+  {
+    elm_time.classList.remove("text-warning")
+    elm_time.classList.remove("text-danger")
+    elm_time.classList.remove("text-muted")
+  }
+
+  if (time <= 0 )
+  {
+    var textarea1 = document.getElementById("textarea1");
+    textarea1.value = '';
+    timeOn = 0
+    elm_time.innerHTML = "1min";
+  }
+
+},1000)
+
+
+function text_was_changed(element) {
+   var textarea1 = document.getElementById("textarea1");
+    event = new Event('change');
+    textarea1.value = element.value;
+    textarea1.dispatchEvent(event);
+
+    timeOn = 1
+    time = 60
+
+    console.log('text was changed');
+  };
+</script>
+
+<main class="bg-dark">
+    <!-- <div class="container"> -->
+      <textarea placeholder="Start Typing Here" id="textarea1" onkeyup="text_was_changed(this);"></textarea>
+    <!-- </div> -->
+</main>

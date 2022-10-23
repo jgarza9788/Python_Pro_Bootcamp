@@ -1,0 +1,53 @@
+/* This CSS file will need to be added to the styling of 
+your web pages for the styles to be rendered. */
+
+
+
+/* body{ */
+  /* background-color: var(--bs-primary) !important; */
+  /* width: 100%; */
+  /* height: 100vh !important ; */
+/* } */
+
+
+main{
+  /* margin: 32px; */
+  padding: 12px 12px;
+  width: 100vw;
+  /* height: 100vh; */
+  height: calc(100vh - 75px);
+}
+
+#textarea1{
+  width: 100%;
+  height: 100%;
+}
+
+p{
+  margin: 0px;
+}
+
+#title{
+
+  animation-name: title_anim;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  color: white;
+
+}
+
+@keyframes title_anim {
+  0% {  color: white;     }
+  100% {    color: #212529;  }
+}
+
+
+
+
+
+
+
+

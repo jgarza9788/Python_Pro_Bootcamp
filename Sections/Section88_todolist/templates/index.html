@@ -1,0 +1,117 @@
+
+{% include "header.html" %}
+
+{#
+<!-- <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title"><i class="mdi mdi-coffee"></i> Café</span>
+      <div class="mdl-layout-spacer"></div>
+      <a href="{{ url_for('add')}}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+  </header>
+</div> -->
+#}
+
+<!-- <script>
+  function fun() {  
+    alert("Welcome to the javaTpoint.com");  
+  }  
+</script> -->
+
+<!-- As a heading -->
+<nav class="navbar bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1 text-light">
+      <i class="bi bi-ui-checks"></i>
+      TaskR
+    </span>
+
+    <a href="{{ url_for('add')}}" class="bi bi-plus-circle-fill btn-plus" ></a>
+  </div>
+</nav>
+
+<!-- <body color="bg-dark"> -->
+
+<main class="bg-dark">
+
+    <div class="container">
+
+      {% for t in tasks %}
+      <div class="row">
+        <div class="input-group">
+
+          {% if t.complete == 1 %}
+          <a href="{{ url_for('clicked', id=t.id) }}" class="btn btn-primary text-light outline-light chbx1" type="button"> <i class="bi bi-check-square-fill"></i></a>
+
+          {% else %}
+          <a href="{{ url_for('clicked', id=t.id) }}" class="btn btn-dark text-light outline-light chbx0" type="button"> <i class="bi bi-square"></i></a>
+
+          {% endif %}
+
+          <label class="form-control outline-light" for="" aria-label="Text input with dropdown button"> {{t.name}} </label>
+          
+          <a href="{{ url_for('edit', id=t.id ) }}" class="btn btn-primary text-light outline-light" type="button"> <i class="bi bi-pen-fill" ></i></a>
+
+          <!-- <a href="#!" type="button" class="bg-primary text-light" >   </a> -->
+
+          <button class="btn btn-danger dropdown-toggle outline-light" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-trash-fill"></i></button>
+          <ul class="dropdown-menu dropdown-menu-end">
+
+            <li><a class="dropdown-item bi bi-trash-fill text-danger" href="{{ url_for('delete', id=t.id) }}"> You Sure ?</a></li>
+            {#
+                          <!-- <li><a class="dropdown-item bi bi-pen-fill text-primary" href="#!"> Edit</a></li> -->
+            <!-- <li><hr class="dropdown-divider"></li> -->
+
+            <li><a class="dropdown-item bi bi-pen-fill text-primary" href="{{ url_for('edit', id=t.id ) }}"> Edit</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item bi bi-trash-fill text-danger" href="{{ url_for('delete', id=t.id) }}"> Delete</a></li>
+            #}
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+
+        <!-- {% for cafe in cafes %}
+        
+          {% if cafes[0].id == 1 %}
+          <tr>
+            <td>Name</td>
+            <td>Location</td>
+            <td>Open</td>
+            <td>Close</td>
+            <td>Coffee Rating</td>
+            <td>Wifi Rating</td>
+            <td>Power Rating</td>
+          </tr>
+          {%endif%}
+        <tr>
+          <td>{{cafe.name}}</td>
+          <td><a class="mdi mdi-map-marker" href="{{cafe.location}}"> Map </a></td>
+          <td>{{cafe.open}}</td>
+          <td>{{cafe.close}}</td>
+          <td>{{cafe.coffee_rating}}</td>
+          <td>{{cafe.wifi_rating}}</td>
+          <td>{{cafe.power_rating}}</td>
+          <td><a href="{{ url_for('delete', id=cafe.id) }}"><i class="mdi mdi-delete-forever delete"></i></a></td>
+          <td><a href="{{ url_for('edit', id=cafe.id) }}"><i class="mdi mdi-pen"></i></a></td>
+        </tr>
+        {% endfor %} -->
+
+
+
+      </div>
+
+
+
+  <!-- </div> -->
+
+
+  
+</main>
+<!-- </body> -->

@@ -24,7 +24,7 @@ Bootstrap(app)
 ##CREATE DATABASE
 # app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///cafes.db"
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.path.join(DIR,'cafes.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + DIR + "cafes.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + DIR + "/cafes.db"
 #Optional: But it will silence the deprecation warning in the console.
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
