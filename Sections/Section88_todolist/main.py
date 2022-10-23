@@ -52,18 +52,21 @@ class TaskForm(FlaskForm):
     duedate = DateField('Due Date',default=DEFAULT_DATE)
     submit = SubmitField("Submit")
 
+
+anim_id = -1
+
 @app.route("/")
 def home():
     all_tasks = db.session.query(TaskR).all()
     print(all_tasks)
     print(type(all_tasks))
-    return render_template('index.html', tasks=all_tasks)
+    return render_template('index.html', tasks=all_tasks,anim_id=anim_id)
 
 
 @app.route('/add', methods=["GET", "POST"])
 def add():
+    anim_id = -1
     form = TaskForm()
-
     print(form.validate_on_submit)
     if form.validate_on_submit():
         new_task = TaskR(
@@ -81,6 +84,8 @@ def add():
 
 @app.route('/clicked/<int:id>', methods=["GET", "POST"])
 def clicked(id):
+    global anim_id 
+    anim_id = id
     t = TaskR.query.get(id)
     print(t)
     print(t.id)
@@ -96,6 +101,7 @@ def clicked(id):
 
 @app.route('/edit/<int:id>', methods=["GET", "POST"])
 def edit(id):
+    anim_id = -1
     try:
         form = TaskForm()
         tte = TaskR.query.get(id)
@@ -129,6 +135,7 @@ def edit(id):
 
 @app.route('/delete/<int:id>', methods=["GET", "POST"])
 def delete(id):
+    anim_id = -1
     try:
         print(id)
         ttd = TaskR.query.get(id)
