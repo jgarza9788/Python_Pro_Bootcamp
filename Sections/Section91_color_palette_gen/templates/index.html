@@ -21,7 +21,12 @@
     
 
     // show the spinner
-    document.getElementById("spinner").classList.remove("hidden");
+    // document.getElementById("spinner").classList.remove("hidden");
+    spinners = document.getElementsByClassName("spinner");
+    for (i = 0; i < spinners.length; i++) {
+      spinners[i].classList.remove("hidden");
+    } 
+
 
     // post_it();
     document.querySelector("input[type='submit']").click();
@@ -98,15 +103,90 @@
       </div>
 
       <div class="results">
-        <div id="spinner" class="mdl-progress mdl-js-progress mdl-progress__indeterminate hidden"></div>
+        
 
+        <!--
         {% for c in colors %}
         <div class="btn color-btn" onclick="copyhex('{{c.hex}}','{{c.txtcolor}}');" style="background-color:#7c7c7c;">
           <div class="shadow-lg  color-data rounded-2 text-nowrap" style="height:50px; width:{{c.percent}}% ;min-width:5%; background-color: {{c.hex}}; color: {{c.txtcolor}};">
             {{c.percent}}%  hex:{{c.hex}}  rgb:{{c.rgb}}
           </div>
         </div>
-        {% endfor %}
+        {% endfor %} 
+        -->
+
+        <h6 class="text-light">colors by percent</h6>
+        <div id="spinner" class="spinner mdl-progress mdl-js-progress mdl-progress__indeterminate hidden" ></div>
+        <div class="grid-container">
+        {% for c in colors_by_percent %}
+
+        <div class="btn color-btn grid-item shadow-lg" onclick="copyhex('{{c.hex}}','{{c.txtcolor}}');" style="background-color:{{c.hex}};">
+          <div class="color-data" style="color: {{c.txtcolor}};">
+            {{c.percent}}% 
+          </div>
+        </div>
+
+        {% endfor %} 
+        </div>
+
+        <h6 class="text-light">colors by saturation</h6>
+        <div id="spinner" class="spinner mdl-progress mdl-js-progress mdl-progress__indeterminate hidden" ></div>
+        <div class="grid-container">
+        {% for c in high_sat %}
+
+        <div class="btn color-btn grid-item shadow-lg" onclick="copyhex('{{c.hex}}','{{c.txtcolor}}');" style="background-color:{{c.hex}};">
+          <div class="color-data" style="color: {{c.txtcolor}};">
+            {{c.sat}}
+          </div>
+        </div>
+
+        {% endfor %} 
+        </div>
+
+
+        <h6 class="text-light">colors by darkness</h6>
+        <div id="spinner" class="spinner mdl-progress mdl-js-progress mdl-progress__indeterminate hidden" ></div>
+        <div class="grid-container">
+        {% for c in dark %}
+
+        <div class="btn color-btn grid-item shadow-lg" onclick="copyhex('{{c.hex}}','{{c.txtcolor}}');" style="background-color:{{c.hex}};">
+          <div class="color-data" style="color: {{c.txtcolor}};">
+            {{c.mean}}
+          </div>
+        </div>
+
+        {% endfor %} 
+        </div>
+
+
+        <h6 class="text-light">colors by brightness</h6>
+        <div id="spinner" class="spinner mdl-progress mdl-js-progress mdl-progress__indeterminate hidden" ></div>
+        <div class="grid-container">
+        {% for c in light %}
+
+        <div class="btn color-btn grid-item shadow-lg" onclick="copyhex('{{c.hex}}','{{c.txtcolor}}');" style="background-color:{{c.hex}};">
+          <div class="color-data" style="color: {{c.txtcolor}};">
+            {{c.mean}}
+          </div>
+        </div>
+
+        {% endfor %} 
+        </div>
+
+        <h6 class="text-light">colors by low-saturation</h6>
+        <div id="spinner" class="spinner mdl-progress mdl-js-progress mdl-progress__indeterminate hidden" ></div>
+        <div class="grid-container">
+        {% for c in low_sat %}
+
+        <div class="btn color-btn grid-item shadow-lg" onclick="copyhex('{{c.hex}}','{{c.txtcolor}}');" style="background-color:{{c.hex}};">
+          <div class="color-data" style="color: {{c.txtcolor}};">
+            {{c.sat}}
+          </div>
+        </div>
+
+        {% endfor %} 
+        </div>
+
 
       </div>
     </div>
@@ -114,7 +194,7 @@
 </main>
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="thistoast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div id="thistoast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="10000">
     <div class="toast-header">
       <!-- <img src="..." class="rounded me-2" alt="..."> -->
       <!-- <i class="mdi mdi-clipboard-outline"></i> -->
