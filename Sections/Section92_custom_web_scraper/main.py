@@ -68,15 +68,17 @@ def main():
     for i in w:
         temp.append(clean_text(i.get_attribute("innerHTML")))
 
-
+    # sort for days 
     temp = sorted(temp, key=lambda x: int(x[2]))
 
+    # for for months
     for m in months:
         for t in temp:
             # print(m,t[1])
             if m == t[1]:
                 result.append(t)
 
+    #print results
     print(*result,sep='\n')
 
 
