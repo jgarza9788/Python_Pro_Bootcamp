@@ -15,7 +15,7 @@ from Twrite import Twrite
 # from Blocks import make_block
 # from Bar import Bar
 # from Ball import Ball
-# from highscore_manager import highscore_manager as HM
+from highscore_manager import highscore_manager as HM
 
 DIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -34,7 +34,7 @@ COLORS = [
 
 def get_screen():
     x = Screen()
-    x.setup(width=600,height=1250)
+    x.setup(width=600,height=600)
     x.bgcolor("#1f1f1f")
     x.title("Space Invaders 👽 - press enter to start")
 
@@ -46,7 +46,17 @@ def get_screen():
 #     sleep_diff = max_sleep - min_sleep
 #     r = min([score/3300,1.0])
 #     return max_sleep - ( sleep_diff * r )
-    
+
+
+def alien_new_speed(s):
+    d = 10000 - s
+    d = max([d,0])
+    d = min([d,1])
+
+    e = 1-(1-d)*(1-d)
+
+    result = (e*1000 )+5
+
 
 def get_distance(sp,fp):
     d = sp - fp
@@ -64,13 +74,24 @@ def main():
     screen = get_screen()
     screen.tracer(0)
 
-    twrite = Twrite(color='#666666',x=0,y=((screen.window_height()/4)*-1))
+    twrite = Twrite(color='#ffffff',x=0,y=( (screen.window_height()/2) - 50))
+    twrite2 = Twrite(color='#ff0000',x=0,y=( (screen.window_height()/-2) + 20))
     # hswrite = Twrite(color='#666666',y=-100)
 
-    # blocks = []
-    # for x in range(-375,375,25):
-    #     for y in range(275,0,-25):
-    #         blocks.append(make_block(color=random.choice(COLORS),x=x, y=y))
+    aliens = []
+    aliens_x_direction = 1
+    alien_speed = 1
+    alien_down_shift = 100
+    for x in range(-300,300,50):
+        for y in range(800 ,200,-50):
+        # for y in range(1200  ,0,-50):
+        # for y in range(625,0,-50):
+                a = Turtle()
+                a.up()
+                a.shape('square')
+                a.goto(int(x),int(y))
+                a.color('#A6E22E')
+                aliens.append(a)
     
     # bar = Bar()
     # ball = Ball()
@@ -78,7 +99,7 @@ def main():
     player = Player()
 
 
-    # HSM = HM(dir=DIR)
+    HSM = HM(dir=DIR)
     player_name = textinput("Name", "what is your name?")
 
     screen.update()
@@ -91,9 +112,7 @@ def main():
     screen.onkeypress(key='Return',fun=start_game)
 
     score = 0
-    ot = 0
-    t = 0 
-    sleep = 0.01
+    sleep = 0.00001
     
     while True:
 
@@ -112,52 +131,75 @@ def main():
             time.sleep(sleep)
             screen.update()
 
-            # if ball.hit_right() or ball.hit_left():
-            #     ball.bounce_RL()
-            
-            # if ball.hit_top():
-            #     ball.bounce_T()
-            
-            
-            # if ball.hit_bottom():
-            #     game_state = 2
-            #     # game over 
-            
-            # for b in blocks:
-            #     if get_distance(b.pos(),ball.t.pos()) < 20.0 and b.isvisible():
-            #         b.hideturtle()
-            #         score += 100
-            #         ball.add_speed(multiply_speed= 1.1)
+            if aliens[0].pos()[0] > 350:
+                aliens_x_direction = -1
 
+                # move down
+                for a in aliens:
+                    xy = a.pos()
+                    a.goto( xy[0] , xy[1] - alien_down_shift)
 
-            #         x = abs( b.pos()[0] - ball.t.pos()[0] )
-            #         y = abs( b.pos()[1] - ball.t.pos()[1] )
+            if aliens[0].pos()[0] < -950:
+                aliens_x_direction = 1
 
-            #         if x > y :
-            #             ball.bounce_RL()
-            #         else:
-            #             ball.bounce_T()
+                # move down
+                for a in aliens:
+                    xy = a.pos()
+                    a.goto( xy[0] , xy[1] - alien_down_shift)
+
+            # your score effects the speed of the alens
+            alien_speed = alien_new_speed(score)
+
+            for a in aliens:
+                xy = a.pos()
+                a.goto( xy[0] + ( 2 * aliens_x_direction), xy[1] )
+            
+            for a in aliens:
+                if a.isvisible() == False:
+                    continue
+
+                for i,p in enumerate(player.projectiles):
+                    if p.isvisible() == False:
+                        continue
                     
-            #         break;
-            
-            # min_ball_distance = 100
-            # for b in bar.turtles:
-            #     ball_distance = get_distance(b.pos(),ball.t.pos())
-            #     if ball_distance < 20.0 and ball.hit_bar_flag == False:
-            #         score += 100
-            #         ball.hit_bar_flag = True
-            #         ball.bounce_T()
+                    if get_distance(a.pos(),p.pos()) < 20.0:
+                        p.hideturtle()
+                        p.goto(-3000,3000)
+                        a.hideturtle()
+                        score += 100
+
+            for a in aliens:
+                if a.isvisible() == False:
+                    continue
+
+                if a.pos()[1] < -200:
+                    HSM.data.append({'name': player_name, 'score':score})
+                    HSM.save()
+                    game_state = 2 
+                    break
+
+            visible_aliens = sum([ 1 for a in aliens if a.isvisible() == True])
+            new_color = random.choice(COLORS)
+            if visible_aliens == 0:
+                alien_down_shift += 50
+                for x in range(-300,300,50):
+                    for y in range(800 ,200,-50):
+                        for a in aliens:
+                            if a.isvisible() == False:
+                                a.goto(int(x),int(y))
+                                a.showturtle()
+                                a.color(new_color)
+                                break
+
                 
-                # min_ball_distance = min( [ ball_distance, min_ball_distance])
-            
-            # if min_ball_distance >= 40.0 and ball.hit_bar_flag == True:
-            #     ball.hit_bar_flag = False
-                
-            # # twrite.write('score: {0:,.0f} | speed: {1:.5f}'.format(score,ball.get_speed()))
-            twrite.write('score: {0:,.0f} '.format(score))
+            # twrite.write('score: {0:,.0f} | speed: {1:.5f}'.format(score,alien_speed))
+            twrite.write('score: {0:,.0f}'.format(score))
+            twrite2.write('ammo: {0}'.format(('*' * player.ammo_count()).ljust(5,'_')))
         
         while game_state == 2 :
-            # twrite.write('GAME OVER \n score: {0:,.0f} '.format(score))
+            # go to center
+            twrite.t.goto(0,0)
+            twrite.write('GAME OVER \n score: {0:,.0f} \n\n top 5 \n {1}'.format(score,HSM.get_top(5)))
             screen.update()
             
         
