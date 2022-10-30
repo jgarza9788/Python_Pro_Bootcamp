@@ -90,35 +90,35 @@
           {#
           <tr>
             <th scope="col">Hashtag</th>
-            <th scope="col" class="text-success">Positive</th>
-            <th scope="col" class="text-danger">Negative</th>
-            <th scope="col" class="text-mute">Neutral</th>
-            <th scope="col" class="text-danger">Delete</th>
+            <th scope="col" class="text-success ">Positive</th>
+            <th scope="col" class="text-danger  ">Negative</th>
+            <th scope="col" class="text-mute    ">Neutral</th>
+            <th scope="col" class="text-danger  ">Delete</th>
           </tr>
           #}
           <tr>
             {% if sort_id == 0 %}
-              <th scope="col"> <a href="{{url_for('sort', id=0 )}}"> <i class="btn sort-on mdi mdi-pound-box"></i> </a></th>
+              <th scope="col"> <a href="{{url_for('sort', id=0 )}}"> <i class="btn sort-on anim-this rounded-pill mdi mdi-pound-box"></i> </a></th>
             {% else %}
-              <th scope="col"> <a href="{{url_for('sort', id=0 )}}"> <i class="btn sort-off mdi mdi-pound-box-outline"></i> </a></th>
+              <th scope="col"> <a href="{{url_for('sort', id=0 )}}"> <i class="btn sort-off rounded-pill mdi mdi-pound-box-outline"></i> </a></th>
             {% endif %}
 
             {% if sort_id == 1 %}
-              <th scope="col"> <a href="{{url_for('sort', id=1 )}}"> <i class="btn btn-success mdi mdi-emoticon-happy"></i> </a></th>
+              <th scope="col"> <a href="{{url_for('sort', id=1 )}}"> <i class="btn btn-success anim-this rounded-pill mdi mdi-emoticon-happy"></i> </a></th>
             {% else %}
-              <th scope="col"> <a href="{{url_for('sort', id=1 )}}"> <i class="btn btn-outline-success mdi mdi-emoticon-happy-outline"></i> </a></th>
+              <th scope="col"> <a href="{{url_for('sort', id=1 )}}"> <i class="btn btn-outline-success rounded-pill mdi mdi-emoticon-happy-outline"></i> </a></th>
             {% endif %}
 
             {% if sort_id == 2 %}
-              <th scope="col"> <a href="{{url_for('sort', id=2 )}}"> <i class="btn btn-danger mdi mdi-emoticon-sad"></i> </a></th>
+              <th scope="col"> <a href="{{url_for('sort', id=2 )}}"> <i class="btn btn-danger anim-this rounded-pill mdi mdi-emoticon-sad"></i> </a></th>
             {% else %}
-              <th scope="col"> <a href="{{url_for('sort', id=2 )}}"> <i class="btn btn-outline-danger mdi mdi-emoticon-sad-outline"></i> </a></th>
+              <th scope="col"> <a href="{{url_for('sort', id=2 )}}"> <i class="btn btn-outline-danger rounded-pill mdi mdi-emoticon-sad-outline"></i> </a></th>
             {% endif %}
 
             {% if sort_id == 3 %}
-              <th scope="col"> <a href="{{url_for('sort', id=3 )}}"> <i class="btn btn-secondary mdi mdi-emoticon-neutral"></i> </a></th>
+              <th scope="col"> <a href="{{url_for('sort', id=3 )}}"> <i class="btn btn-secondary anim-this rounded-pill mdi mdi-emoticon-neutral"></i> </a></th>
             {% else %}
-              <th scope="col"> <a href="{{url_for('sort', id=3 )}}"> <i class="btn btn-outline-secondary mdi mdi-emoticon-neutral-outline"></i> </a></th>
+              <th scope="col"> <a href="{{url_for('sort', id=3 )}}"> <i class="btn btn-outline-secondary rounded-pill mdi mdi-emoticon-neutral-outline"></i> </a></th>
             {% endif %}
 
             <th scope="col"> </th>
@@ -132,8 +132,8 @@
             <td class="text-success">{{ht.pos_percent}}</td>
             <td class="text-danger">{{ht.neg_percent}}</td>
             <td class="text-mute">{{ht.mid_percent}}</td>
-            <td><a class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#refreshModal" data-bs-name="{{ht.hashtag}}" data-bs-url="{{ url_for('refresh', id=ht.id) }}"> <i class="mdi mdi-refresh" ></i></a></td>
-            <td><a class="btn btn-outline-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-name="{{ht.hashtag}}" data-bs-url="{{ url_for('delete', id=ht.id) }}"> <i class="bi bi-trash-fill" ></i></a></td>
+            <td><a class="btn btn-outline-primary rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#refreshModal" data-bs-name="{{ht.hashtag}}" data-bs-url="{{ url_for('refresh', id=ht.id) }}"> <i class="mdi mdi-refresh" ></i></a></td>
+            <td><a class="btn btn-outline-danger  rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-name="{{ht.hashtag}}" data-bs-url="{{ url_for('delete', id=ht.id) }}"> <i class="bi bi-trash-fill" ></i></a></td>
           </tr>
           {% endfor %}
 
