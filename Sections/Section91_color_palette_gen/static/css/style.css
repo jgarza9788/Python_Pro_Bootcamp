@@ -28,17 +28,30 @@ main{
 }
 
 .image{
-  position: absolute;
-  height: 100%;
-  /* width: auto; */
-  min-width: 100px;
-  max-width: 100%;
-  background-color: #212529;
-  /* object-fit: contain; */
 
-  object-fit: contain;
+  height: 100%;
+  width: 100%;
+
+  background-color: #212529;
+
+  object-fit: cover;
   object-position: center center;
+  overflow: hidden;
+
+
+
 }
+
+.inner-shadow{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0rem 0rem 5rem 0rem  #000000;
+  pointer-events: none;
+}
+
 
 form,.form-control,.invisible{
   color: transparent;
@@ -51,6 +64,7 @@ form,.form-control,.invisible{
   left: 0;
   height: 100%;
   width: 100%;
+  opacity: 0.001;
 
 }
 

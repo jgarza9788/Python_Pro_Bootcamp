@@ -91,14 +91,15 @@
       <h5 class="text-light"> Drag and Drop files below </h5>
       <div class="image-stack">
         
-        <img id="img1" src="static/imgs/{{filename}}" class="image position-absolute top-50 start-50 translate-middle">
+        <img id="img1" src="static/imgs/{{filename}}" class="rounded-4 image position-absolute top-50 start-50 translate-middle">
         
         
         <form method="post" action="/" enctype="multipart/form-data">
-          
-          <input type="file" name="file" id="input-file" class="rounded form-control" autocomplete="off" onchange="upload(this.value)" required>
+          <input type="file" name="file" id="input-file" class="form-control" autocomplete="off" onchange="upload(this.value)" required>
           <input type="submit" value="submit" class="btn btn-info invisible">
         </form>
+
+        <div class="inner-shadow rounded-4 border border-5"></div>
         
       </div>
 

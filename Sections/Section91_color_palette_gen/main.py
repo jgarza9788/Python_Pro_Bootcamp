@@ -1,7 +1,6 @@
 
 
-from ast import Lambda
-from xml.etree.ElementTree import tostring
+
 from flask import Flask, flash, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
@@ -43,6 +42,11 @@ def rgb_to_hex(rgb):
 def home():
 
     if request.method == "POST":
+
+        for old_file in os.listdir(UPLOAD_FOLDER):
+            # print(old_file)
+            os.remove( os.path.join(UPLOAD_FOLDER,old_file))
+
         if 'file' not in request.files:
             flash('No file part')
             print('No file part')
