@@ -137,56 +137,6 @@ def refresh(id):
     return redirect(url_for('home'))
 
 
-# @app.route('/clicked/<int:id>', methods=["GET", "POST"])
-# def clicked(id):
-#     global anim_id 
-#     anim_id = id
-#     t = TaskR.query.get(id)
-#     print(t)
-#     print(t.id)
-#     print(t.name)
-#     if t.complete == 1:
-#         t.complete = 0 
-#     else:
-#         t.complete = 1
-#     print('Complete',t.complete)
-#     db.session.add(t)
-#     db.session.commit()
-#     return redirect(url_for('home'))
-
-# @app.route('/edit/<int:id>', methods=["GET", "POST"])
-# def edit(id):
-#     anim_id = -1
-#     try:
-#         form = TaskForm()
-#         tte = TaskR.query.get(id)
-
-#         if form.validate_on_submit():
-
-#             tte.complete = form.complete.data
-#             tte.name = form.name.data
-#             tte.description = form.description.data
-#             tte.duedate = form.duedate.data
-
-#             db.session.commit()
-#             return redirect(url_for('home'))
-    
-#         else:
-#             print(id)
-#             # cafe to edit = cte
-#             tte = TaskR.query.get(id)
-
-#             form = TaskForm()
-#             form.complete.data = tte.complete
-#             form.name.data = tte.name
-#             form.description.data = tte.description
-#             form.duedate.data = tte.duedate
-
-#             return render_template('edit.html', form=form)
-#     except Exception as e:
-#         print('error: id: ', str(id) ,' might not exist')
-#         print(str(e))
-#     return redirect(url_for('home'))
 
 @app.route('/delete/<int:id>', methods=["GET", "POST"])
 def delete(id):
