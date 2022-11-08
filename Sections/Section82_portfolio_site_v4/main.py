@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, flash, send_from_directory
+from flask import Flask, make_response, render_template, request, url_for, redirect, flash, send_from_directory
 import requests
 
 app = Flask(__name__)
@@ -16,11 +16,22 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("test copy 2.html")
+    return render_template("index.html")
 
 @app.route("/home")
 def home():
     return render_template("index.html")
+
+@app.route("/theme", methods=["GET", "POST"])
+@app.route("/theme/<int:theme>", methods=["GET", "POST"])
+def theme(theme=1):
+
+    theme = request.form['theme']
+    res = make_response(redirect(url_for("home")))
+    res.set_cookie("theme", str(theme))
+    print(res)
+    return res
+
 
 @app.route("/post")
 def post():

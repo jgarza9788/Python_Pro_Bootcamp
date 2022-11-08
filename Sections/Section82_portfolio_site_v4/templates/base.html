@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" style="height: 100%">
+
 <head>
-  <title>Hello, world!</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="" />
+
+  <title>Justin Garza</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="">
+  <meta name="author" content="Justin Garza">
 
   <!-- BootStrap -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
@@ -29,14 +32,196 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
 
   <!-- JQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" ></script>
 
   <link href="../static/css/style.css" rel="stylesheet" />
+
+  <script>
+
+    var theme = -1; // -1 is dark, 1 is light
+
+    var this_url = window.location.href;
+
+    $(document).ready(function(){
+
+      console.log($.ajax);
+
+      theme = parseInt( document.getElementById("theme").innerText );
+      toggle_theme(theme);
+
+      M.AutoInit();
+
+
+      console.log(this_url);
+    });
+
+
+    function add_pulse(btn){
+      btn.classList.add("pulse");
+    }
+
+    function remove_pulse(btn){
+      btn.classList.remove("pulse");
+    }
+
+    function copy_to_clipboard(text) {
+
+      navigator.clipboard.writeText(text).then(function() {
+        M.toast({html: text + " was copied to clipboard", classes: 'rounded'});
+      })
+
+    }
+
+    function toggle_theme(id){
+
+      if (id == null)
+      {
+        console.log("theme before switch " + theme);
+        theme = theme * -1;
+        console.log("theme after switch " + theme);
+      }
+      else
+      {
+        theme = id * 1;
+      }
+
+      var url = this_url + "theme" ;
+      var data = {theme: theme};
+      console.log(data);
+
+
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        dataType: "json"
+      });
+
+      var dm = document.getElementsByClassName("dark-mode")[0];
+      var lm = document.getElementsByClassName("light-mode")[0];
+      var canvas = document.getElementById("canvas");
+      var icon = document.getElementById("theme-icon");
+      var theme_text = document.getElementById("theme-text");
+      var theme_btn = document.getElementById("theme-btn");
+      var logo = document.getElementById("logo");
+      var logo_text = document.getElementById("logo-text");
+      var us1988 = document.getElementById("US1988");
+
+      var nav_btns = document.getElementsByClassName("nav-btn");
+
+      //dark mode
+      if (theme < 0)
+      {
+        dm.id = "fs";
+        lm.id = "fsx";
+
+        us1988.classList.add("white-text");
+        us1988.classList.remove("black-text");
+
+        icon.classList.add("mdi-brightness-5");
+        icon.classList.remove("mdi-brightness-3");
+
+        theme_text.innerText = "Light Theme";
+
+        logo.classList.add("logo-dm");
+        logo.classList.remove("logo-lm");
+
+        logo_text.classList.add("white-text");
+        logo_text.classList.remove("black-text");
+
+        for (i = 0; i < nav_btns.length; i++) {
+          nav_btns[i].classList.add("black");
+          nav_btns[i].classList.add("waves-cyan");
+          nav_btns[i].classList.add("white-text");
+          nav_btns[i].classList.add("hover-cyan");
+
+          nav_btns[i].classList.remove("hover-white");
+          nav_btns[i].classList.remove("black-text");
+          nav_btns[i].classList.remove("waves-black");
+          nav_btns[i].classList.remove("cyan");
+          nav_btns[i].classList.remove("accent-3");
+        } 
+
+        theme_btn.classList.remove("black");
+        theme_btn.classList.remove("waves-cyan");
+        theme_btn.classList.remove("white-text");
+        theme_btn.classList.remove("hover-cyan");
+        theme_btn.classList.add("hover-white");
+        theme_btn.classList.add("black-text");
+        theme_btn.classList.add("waves-black");
+        theme_btn.classList.add("cyan");
+        theme_btn.classList.add("accent-3");
+      }
+
+      //light mode
+      if (theme > 0)
+      {
+        dm.id = "fsx";
+        lm.id = "fs";
+
+        us1988.classList.add("black-text");
+        us1988.classList.remove("white-text");
+
+        icon.classList.add("mdi-brightness-3");
+        icon.classList.remove("mdi-brightness-5");
+
+        theme_text.innerText = "Dark Theme";
+
+        logo.classList.add("logo-lm");
+        logo.classList.remove("logo-dm");
+
+        logo_text.classList.add("black-text");
+        logo_text.classList.remove("white-text");
+
+        for (i = 0; i < nav_btns.length; i++) {
+          nav_btns[i].classList.remove("black");
+          nav_btns[i].classList.remove("waves-cyan");
+          nav_btns[i].classList.remove("white-text");
+          nav_btns[i].classList.remove("hover-cyan");
+
+          nav_btns[i].classList.add("hover-white");
+          nav_btns[i].classList.add("black-text");
+          nav_btns[i].classList.add("waves-black");
+          nav_btns[i].classList.add("cyan");
+          nav_btns[i].classList.add("accent-3");
+        } 
+
+        theme_btn.classList.add("black");
+        theme_btn.classList.add("waves-cyan");
+        theme_btn.classList.add("white-text");
+        theme_btn.classList.add("hover-cyan");
+        theme_btn.classList.remove("hover-white");
+        theme_btn.classList.remove("black-text");
+        theme_btn.classList.remove("waves-black");
+        theme_btn.classList.remove("cyan");
+        theme_btn.classList.remove("accent-3");
+
+      }
+
+      canvas.classList.remove("canvas-in");
+      canvas.classList.add("canvas-out");
+      setTimeout(function() {
+        init();
+        canvas.classList.remove("canvas-out");
+        canvas.classList.add("canvas-in");
+      }, 500);
+      
+
+    }
+
+  </script>
 
 </head>
 <body>
 
-  <div id="theme">1</div>
+
+
+  {% if request.cookies.get("theme") != None %}
+  <div id="theme" class="display-none">{{request.cookies.get("theme")}}</div>
+  {% else %}
+  <div id="theme" class="display-none">-1</div>
+  {% endif %}
 
   <!-- ##### topography graphic #####  -->
   <canvas id="canvas" class="canvas-in" ></canvas>
@@ -64,79 +249,6 @@
     //	Simplex 3D Noise 
     //	by Ian McEwan, Ashima Arts
     //
-    /*
-    vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
-    vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
-    
-    float snoise(vec3 v){ 
-    const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
-    const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
-    
-    // First corner
-    vec3 i  = floor(v + dot(v, C.yyy) );
-    vec3 x0 =   v - i + dot(i, C.xxx) ;
-    
-    // Other corners
-    vec3 g = step(x0.yzx, x0.xyz);
-    vec3 l = 1.0 - g;
-    vec3 i1 = min( g.xyz, l.zxy );
-    vec3 i2 = max( g.xyz, l.zxy );
-    
-      //  x0 = x0 - 0. + 0.0 * C 
-      vec3 x1 = x0 - i1 + 1.0 * C.xxx;
-      vec3 x2 = x0 - i2 + 2.0 * C.xxx;
-      vec3 x3 = x0 - 1. + 3.0 * C.xxx;
-    
-    // Permutations
-    i = mod(i, 289.0 ); 
-    vec4 p = permute( permute( permute( 
-        i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
-        + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
-        + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
-    
-    // Gradients
-    // ( N*N points uniformly over a square, mapped onto an octahedron.)
-      float n_ = 1.0/7.0; // N=7
-      vec3  ns = n_ * D.wyz - D.xzx;
-    
-      vec4 j = p - 49.0 * floor(p * ns.z *ns.z);  //  mod(p,N*N)
-    
-      vec4 x_ = floor(j * ns.z);
-      vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)
-    
-    vec4 x = x_ *ns.x + ns.yyyy;
-    vec4 y = y_ *ns.x + ns.yyyy;
-    vec4 h = 1.0 - abs(x) - abs(y);
-  
-    vec4 b0 = vec4( x.xy, y.xy );
-    vec4 b1 = vec4( x.zw, y.zw );
-  
-    vec4 s0 = floor(b0)*2.0 + 1.0;
-    vec4 s1 = floor(b1)*2.0 + 1.0;
-    vec4 sh = -step(h, vec4(0.0));
-  
-    vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
-    vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
-  
-    vec3 p0 = vec3(a0.xy,h.x);
-    vec3 p1 = vec3(a0.zw,h.y);
-    vec3 p2 = vec3(a1.xy,h.z);
-    vec3 p3 = vec3(a1.zw,h.w);
-    
-    //Normalise gradients
-    vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
-      p0 *= norm.x;
-      p1 *= norm.y;
-      p2 *= norm.z;
-      p3 *= norm.w;
-    
-    // Mix final noise value
-    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
-    m = m * m;
-    return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), 
-                    dot(p2,x2), dot(p3,x3) ) );
-    }
-    */
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -269,12 +381,10 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
       //cyan
       vec3 cyan = vec3(0.0,0.8980,1.0);
 
-      float smtime = time*0.001;
+      p.x += sin(time);
+      p.y += cos(time);
 
-      p.x += sin(smtime);
-      p.y += cos(smtime);
-
-      vec3 xyt  = vec3(p.x * 0.5 ,p.y * 0.5,smtime);
+      vec3 xyt  = vec3(p.x * 0.5 ,p.y * 0.5,time);
 
       float f = snoise(xyt);
 
@@ -327,85 +437,10 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
     // https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
     //	Simplex 3D Noise 
     //	by Ian McEwan, Ashima Arts
-    //
-    /*
-    vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
-    vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}
-    
-    float snoise(vec3 v){ 
-    const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
-    const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
-    
-    // First corner
-    vec3 i  = floor(v + dot(v, C.yyy) );
-    vec3 x0 =   v - i + dot(i, C.xxx) ;
-    
-    // Other corners
-    vec3 g = step(x0.yzx, x0.xyz);
-    vec3 l = 1.0 - g;
-    vec3 i1 = min( g.xyz, l.zxy );
-    vec3 i2 = max( g.xyz, l.zxy );
-    
-      //  x0 = x0 - 0. + 0.0 * C 
-      vec3 x1 = x0 - i1 + 1.0 * C.xxx;
-      vec3 x2 = x0 - i2 + 2.0 * C.xxx;
-      vec3 x3 = x0 - 1. + 3.0 * C.xxx;
-    
-    // Permutations
-    i = mod(i, 289.0 ); 
-    vec4 p = permute( permute( permute( 
-        i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
-        + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
-        + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
-    
-    // Gradients
-    // ( N*N points uniformly over a square, mapped onto an octahedron.)
-      float n_ = 1.0/7.0; // N=7
-      vec3  ns = n_ * D.wyz - D.xzx;
-    
-      vec4 j = p - 49.0 * floor(p * ns.z *ns.z);  //  mod(p,N*N)
-    
-      vec4 x_ = floor(j * ns.z);
-      vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)
-    
-    vec4 x = x_ *ns.x + ns.yyyy;
-    vec4 y = y_ *ns.x + ns.yyyy;
-    vec4 h = 1.0 - abs(x) - abs(y);
-  
-    vec4 b0 = vec4( x.xy, y.xy );
-    vec4 b1 = vec4( x.zw, y.zw );
-  
-    vec4 s0 = floor(b0)*2.0 + 1.0;
-    vec4 s1 = floor(b1)*2.0 + 1.0;
-    vec4 sh = -step(h, vec4(0.0));
-  
-    vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
-    vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
-  
-    vec3 p0 = vec3(a0.xy,h.x);
-    vec3 p1 = vec3(a0.zw,h.y);
-    vec3 p2 = vec3(a1.xy,h.z);
-    vec3 p3 = vec3(a1.zw,h.w);
-    
-    //Normalise gradients
-    vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
-      p0 *= norm.x;
-      p1 *= norm.y;
-      p2 *= norm.z;
-      p3 *= norm.w;
-    
-    // Mix final noise value
-    vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
-    m = m * m;
-    return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), 
-                    dot(p2,x2), dot(p3,x3) ) );
-    }
-    */
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 // https://github.com/ashima/webgl-noise/blob/master/src/noise3D.glsl
-
 //
 // Description : Array and textureless GLSL 2D/3D/4D simplex 
 //               noise functions.
@@ -450,10 +485,6 @@ vec3 l = 1.0 - g;
 vec3 i1 = min( g.xyz, l.zxy );
 vec3 i2 = max( g.xyz, l.zxy );
 
-//   x0 = x0 - 0.0 + 0.0 * C.xxx;
-//   x1 = x0 - i1  + 1.0 * C.xxx;
-//   x2 = x0 - i2  + 2.0 * C.xxx;
-//   x3 = x0 - 1.0 + 3.0 * C.xxx;
 vec3 x1 = x0 - i1 + C.xxx;
 vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y
 vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y
@@ -533,12 +564,10 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
       //cyan
       vec3 cyan = vec3(0.0,0.8980,1.0);
 
-      float smtime = time*0.001;
+      p.x += sin(time);
+      p.y += cos(time);
 
-      p.x += sin(smtime);
-      p.y += cos(smtime);
-
-      vec3 xyt  = vec3(p.x * 0.5 ,p.y * 0.5,smtime);
+      vec3 xyt  = vec3(p.x * 0.5 ,p.y * 0.5,time);
 
       float f = snoise(xyt);
 
@@ -582,6 +611,22 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
   </script> 
 
   <script>
+
+    function getTime(){
+
+      var d = new Date();
+      var mms = 0.0;
+
+      mms += d.getMinutes() * 60.0 * 1000.0;
+      mms += d.getSeconds() * 1000.0;
+      mms += d.getMilliseconds();
+
+      // console.log(Math.sin(mms/3600000.0));
+
+      return Math.sin(mms/3600000.0) * 25.0;
+    }
+
+
     /**
      * Provides requestAnimationFrame in a cross browser way.
      * paulirish.com/2011/requestanimationframe-for-smart-animating/
@@ -608,7 +653,7 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
       timeLocation,
       resolutionLocation,
       parameters = {  
-              start_time  : new Date().getTime(), 
+              start_time  : getTime(), 
               time        : 0, 
               screenWidth : 0, 
               screenHeight: 0 
@@ -734,7 +779,9 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
 
       if ( !currentProgram ) return;
 
-      parameters.time = new Date().getTime() - parameters.start_time;
+
+      //parameters.time = new Date().getTime() - parameters.start_time;
+      parameters.time = getTime();
 
       gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT );
 
@@ -744,7 +791,8 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
 
       // Set values to program variables
 
-      gl.uniform1f( timeLocation, parameters.time / 1000 );
+      //gl.uniform1f( timeLocation, parameters.time / 1000 );
+      gl.uniform1f( timeLocation, parameters.time );
       gl.uniform2f( resolutionLocation, parameters.screenWidth, parameters.screenHeight );
 
       // Render geometry
@@ -774,10 +822,7 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
     </div>
 
     <div class="nav-btn nav-item waves-effect waves-cyan btn black hover-cyan z-depth-4 nav-btn-head">
-      <!-- <i class="mdi mdi-account-circle"></i> -->
-      <!-- <i class="logo-sm"></i> -->
       <i class="mdi mdi-account-circle"></i>
-      <!-- <i class="mdi mdi-circle"></i> -->
       <span>Justin Garza</span>
     </div>
 
@@ -806,25 +851,10 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
 
   </div>
 
+  <div class="main-grid-item">
 
-  <div class="main-grid-item content-grid">
-
-    <div class="content-center content-item">
-      <h1 id="US1988" class="white-text">
-        Unstandard<br/>Since 1988
-      </h1>
-      <!-- <br/> -->
-      <div class="profile-buttons">
-        <a onclick="copy_to_clipboard('jgarza9788@gmail.com')" class="btn-profile btn-floating btn-large tooltipped cyan accent-3 z-depth-4 waves-effect waves-black" data-position="bottom" data-tooltip="Email" href="mailto: jgarza9788@gmail.com">    <i class="mdi mdi mdi-email"></i></a>
-        <a onclick="copy_to_clipboard('1 818 251 0647')" class="btn-profile btn-floating btn-large tooltipped cyan accent-3 z-depth-4 waves-effect waves-black" data-position="bottom" data-tooltip="Phone" href="tel:+: 18182510647">              <i class="mdi mdi-phone" ></i></a>
-        <a class="btn-profile btn-floating btn-large tooltipped cyan accent-3 z-depth-4 waves-effect waves-black" data-position="bottom" data-tooltip="GitHub" href="https://github.com/jgarza9788" target=“_blank”>   <i class="mdi mdi-github"></i></a>
-        <a class="btn-profile btn-floating btn-large tooltipped cyan accent-3 z-depth-4 waves-effect waves-black" data-position="bottom" data-tooltip="Twitter" href="https://twitter.com/JGarza9788" target=“_blank”>  <i class="mdi mdi-twitter"></i></a>
-      </div>
-    
-      <!-- <div style="height: 600px">  </div> -->
-    </div>
-    
-
+    {% block content %}
+    {% endblock %}
 
   </div>
 </main>
