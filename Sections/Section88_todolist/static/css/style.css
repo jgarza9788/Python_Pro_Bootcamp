@@ -13,8 +13,8 @@ main{
   /* margin: 32px; */
   margin: 52px 0px;
   padding: 12px 12px;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  /* height: 100vh; */
 }
 
 .outline-dark{

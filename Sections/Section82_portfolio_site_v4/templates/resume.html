@@ -1,35 +1,70 @@
-{% include "header.html" %}
+{% extends "base.html" %}
 
-<!-- Page Header-->
-<!-- <header class="masthead" style="background-image: url('static/assets/img/about-bg.jpg')">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="page-heading">
-                    <h1>About Me</h1>
-                    <span class="subheading">This is what I do.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header> -->
-<!-- Main Content-->
-<!-- <main class="mb-4">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
-            </div>
-        </div>
-    </div>
-</main>
-<hr> -->
+{% block content %}
 
-<div class="content resume">
-    <embed src="static/assets/JustinGarza_pyDev.pdf" type="application/pdf" width="100%" height="100%"/>
-    <!-- <embed src="https://drive.google.com/file/d/1ndDoQvbNE9tdAMT3IA4kFu2kMi2MwVz6/export?format=pdf" type="application/pdf" width="100%" height="100%"/> -->
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.0.279/pdf_viewer.min.css" integrity="sha512-bhJalmRVg29JjmI5PVxobJ3xL71iUqk9yXhGjEtpuBg1tZ9LZZKF7Bdm8u6JifzvnxnsCB/PR9tZzmNEDE/BvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+<script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+<style>
+
+
+
+.resume-grid{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: calc(100% - 3rem - 1rem) 3rem;
+    gap: 1rem;
+
+    height: 100%;
+
+    max-width: 800px;
+    width: 100%;
+
+    margin: auto
+}
+
+.download-button{
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    vertical-align: middle;
+}
+
+.resume{
+    height: 100%;
+
+    max-width: 800px;
+
+    width: 100%;
+
+    border-radius: 0.5rem;
+
+    background-color: white;
+
+    outline: none;
+    border-color: transparent;
+
+
+}
+
+
+</style>
+
+<div class="container">
+
+    <div class="resume-grid">
+
+        <iframe class="resume z-depth-4" src="https://docs.google.com/document/d/e/2PACX-1vTfyQF_RLsjmlFJxM77owVkkIQhA7VdlCTKzO-SccGX2IT_xMyc3zUTtC3l3Fir0Q/pub?embedded=true" >
+        </iframe>
+
+
+        <a class="download-button cyan accent-3 z-depth-4 waves-effect waves-black text-color" href="https://drive.google.com/uc?export=download&id=1nJ5br6s2creMRT-kQ8CaXAFXeJTcfZBv" >   <i class="mdi mdi-download"></i> Download </a>
+    </div>
+
+
+        
 </div>
 
-{% include "footer.html" %}
+
+{% endblock %}

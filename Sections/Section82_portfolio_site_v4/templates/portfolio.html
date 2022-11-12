@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<style>
+
+.main-portfolio-grid{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 3rem 1fr;
+
+    padding: 1rem;
+    gap: 1rem;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.button-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.search-box{
+
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0.5rem;
+
+    display: grid;
+    grid-template-columns: 3rem 1fr  3rem;
+
+}
+
+.browser-default:active,
+.browser-default:focus,
+.browser-default
+{
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: transparent;
+    border: none !important;
+    outline: none !important;
+
+    font-size: 16px;
+    font-size: 1.5rem;
+    line-height: 100%;
+    vertical-align: middle;
+
+    margin-bottom: 24px;
+}
+
+.tool-btn{
+    height: 100%;
+    width: 3rem;
+
+    border-radius: 50%;
+    border-radius: 0.5rem !important;
+
+    line-height: 100%;
+    vertical-align: middle;
+
+    background-color: transparent;
+}
+
+.tool-btn:hover{
+    background-color: transparent;
+}
+
+.tool-btn i{
+
+    font-size: 2rem !important;
+    height: 3rem;
+    width: 3rem;
+
+    /* line-height: 100% !important; */
+    vertical-align: middle !important;
+}
+
+.search-input,
+.search-input:hover,
+.search-input:focus,
+.search-input:active {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    outline: none !important;
+    border: none !important;
+    box-shadow: none    !important;
+}
+
+
+
+.project-grid{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem;
+
+    overflow-y: scroll;
+}
+
+.project-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.project-card{
+    
+    height: 20rem;
+    border-radius: 0.5rem;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background-size: cover;
+    background-position: center center;
+
+    overflow: hidden;
+}
+
+/* .project-card .overlay{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+.card-info{
+    position: relative;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+
+    padding: 1rem;
+    height: 100% !important;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 3rem 3fr 0.2fr 3rem 3rem ;
+    grid-row: 0;
+}
+
+.card-info h5,
+.card-info p,
+.card-info a{
+    text-align: left;
+}
+
+.card-info p{
+    font-size: 1.25rem;
+}
+
+.card-info i{
+    font-size: 1.5rem !important;
+}
+
+.project-icons{
+
+      text-align: left;
+}
+
+.project-icons a{
+    font-size: 1.5rem;
+    /* line-height: 1rem; */
+    line-height: 100%;
+    vertical-align: middle;
+}
+
+.btn-flat{
+    height: 3rem;
+    border-radius: 0.5rem;
+
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+
+    margin: 0;
+    padding: 0;
+}
+
+.btn-flat span{
+    line-height: 3rem !important;
+    vertical-align: middle !important;
+}
+
+.btn-flat i{
+    width: 100% !important;
+    height: 100% !important;
+    line-height: 3rem !important;
+    vertical-align: middle !important;
+}
+
+.btn-flat:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+
+
+.btn-flat:active,
+.btn-flat:focus{
+    background-color: transparent   !important;    
+}
+
+.badge{
+    padding: 0 0.5rem !important;
+    background-color: #666666;
+    color: white !important;
+    border-radius: 0.25rem;
+
+    display: inline-block;
+}
+
+</style>
+
+<script>
+
+    let s = document.getElementById("search-input");
+
+    $(document).ready(function(){
+        s = document.getElementById("search-input");
+    });
+
+
+    function focus_search(){
+        s.focus();
+    }
+
+    function clear_search(){
+        s.value = "";
+        window.location =  window.location.origin + "/portfolio"
+    }
+
+    function on_search(){
+
+        console.log(s.value);
+
+        // var data = {query: s.value.toString()};
+        // console.log(data);
+        // console.log(window.location.href);
+        console.log(window.location.origin + "/portfolio/" + s.value);
+        
+
+        setTimeout(function(){
+
+            window.location =  window.location.origin + "/portfolio/" + s.value;
+
+                // $.ajax({
+                // type: "GET",
+                // url: window.location.href + "?q" + s.values,
+                // data: data,
+                // success: console.log("done"),
+                // dataType: "json"
+                // });
+
+            }
+            ,500
+        );
+    }
+
+</script>
+
+<div class="main-portfolio-grid">
+
+    <div class="search-box card-color "> 
+        <a onclick="focus_search()" class="tool-btn btn-floating btn-flat waves-effect waves-color text-color"><i class="mdi mdi-magnify text-color"></i></a>
+        <input id="search-input" class="search-input text-color" type="text" onchange="on_search()" value="{{query}}" />
+        <a onclick="clear_search()" class="tool-btn btn-floating btn-flat waves-effect waves-color text-color"><i class="mdi mdi-close-thick text-color"></i></a>
+    </div>
+
+    <div class="project-grid">
+    {% for p in portfolio_data%}
+        <div class="project-card z-depth-4 card-color" style="background-image: url('{{ p.background }}');">
+
+            <div class="card-info text-color">
+                <h5>{{p.name}}</h5>
+                <p> 
+                    {{p.desc}}
+                </p>
+                <div class="spacer"> </div>
+                <span class="project-icons text-color"> 
+
+                    {% for i in p.icons%}
+                    <i class="text-color tooltipped mdi {{i.icon}}" data-position="bottom" data-tooltip="{{i.tooltip}}"></i>
+                    {% endfor %}
+
+                </span>
+
+                <a class="btn-flat waves-effect waves-color text-color" href="{{p.link}}" target="_blank"> 
+                    <i class="text-color tooltipped mdi mdi-github" data-position="bottom" data-tooltip="GitHub"></i>
+                    <span>view on github</span>
+                </a>
+
+            </div>
+
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,5 +1,15 @@
+
+
+from portfolio import portfolio
+p = portfolio()
+
+from fuzzywuzzy import fuzz
+
+import re
+
+import time
 from flask import Flask, make_response, render_template, request, url_for, redirect, flash, send_from_directory
-import requests
+
 
 app = Flask(__name__)
 
@@ -22,32 +32,64 @@ def index():
 def home():
     return render_template("index.html")
 
-@app.route("/theme", methods=["GET", "POST"])
-@app.route("/theme/<int:theme>", methods=["GET", "POST"])
-def theme(theme=1):
 
-    theme = request.form['theme']
-    res = make_response(redirect(url_for("home")))
-    res.set_cookie("theme", str(theme))
-    print(res)
+# @app.route("/theme")
+# @app.route("/theme/<theme>", methods=["GET", "POST"])
+@app.route("/theme", methods=["GET", "POST"])
+def theme():
+    theme = request.form["theme"]
+    page =  request.form["page"]
+    print(theme,page)
+    res = make_response(redirect(url_for(page)))
+    res.set_cookie("theme", theme)
+    # print(res)
+    # return "ok"
     return res
 
 
-@app.route("/post")
-def post():
-    return render_template("post.html")
+@app.route("/portfolio")
+def portfolio():
+    return render_template("portfolio.html",portfolio_data=p.data,query="")
 
-@app.route("/post<num>")
-def post_num(num):
-    return render_template("post.html")
+@app.route("/portfolio/")
+def portfolio_blank():
+    return redirect(url_for("portfolio"))
+
+@app.route("/portfolio/<query>", methods=['GET', 'POST'])
+def portfolio_query(query):
+
+    print(query)
+
+    if len(query) < 2:
+        return redirect(url_for("portfolio"))
+
+    query = query.lower()
+
+    pl = []
+    for i in p.data:
+        if query in str(i).lower():
+            pl.append(i)
+        else:
+            temp = re.sub(r'[^A-Za-z]+',',',str(i).lower())
+            for w in re.split(',',temp):
+                # print(w)
+                if fuzz.ratio(query, w) > 85:
+                    pl.append(i)
+                    break;
+    
+    return render_template("portfolio.html",portfolio_data=pl,query=query)
+
+
+# @app.route("/portfolio/project")
+# def project():
+#     return render_template("portfolio.html")
+
+
 
 @app.route("/resume")
 def resume():
     return render_template("resume.html")
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
 
 @app.route("/contact")
 def contact():
@@ -103,8 +145,12 @@ def contact():
 
 
 if __name__ == "__main__":
-    app.debug = True
-    app.run()    
+    # app.debug = True
+    # app.run()
+    # app.run(host='0.0.0.0', port=5000)
+    # app.run(debug=True, host= '192.168.182.1', port="8080")
+    # app.run(debug=True, host= '192.168.23.1', port="8080")
+    app.run(debug=True, host= '192.168.1.130', port="8800")
 
 # run in terminal
 """

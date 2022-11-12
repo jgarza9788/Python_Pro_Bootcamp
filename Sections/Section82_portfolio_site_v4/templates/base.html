@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="">
   <meta name="author" content="Justin Garza">
+  <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /> -->
+  <!-- <meta http-equiv="Pragma" content="no-cache" /> -->
+  <!-- <meta http-equiv="Expires" content="-1" /> -->
 
   <!-- BootStrap -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
@@ -21,6 +24,7 @@
   <!-- Materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 
 
   <!-- <link href="https://fonts.googleapis.com/css2?family=Bebas Neue:wght@100;400;900&display=swap" rel="stylesheet"> -->
@@ -36,33 +40,51 @@
   <script src="https://code.jquery.com/jquery-3.6.1.min.js" ></script>
 
   <link href="../static/css/style.css" rel="stylesheet" />
+  <!-- <link href="../static/css/index.css" rel="stylesheet" /> -->
+  <!-- <link href="../static/css/resume.css" rel="stylesheet" /> -->
+  <!-- <link href="../static/css/contact.css" rel="stylesheet" /> -->
+
+  {% if request.cookies.get("theme") == "light" %}
+  <!-- dark will transition to light on load -->
+  <link id="theme-css" href="../static/css/light.css" rel="stylesheet" />
+  {% else %}
+  <!-- light will transition to dark on load -->
+  <link id="theme-css" href="../static/css/dark.css" rel="stylesheet" />
+  {% endif %}
+
 
   <script>
 
-    var theme = -1; // -1 is dark, 1 is light
+    var theme = "dark"; 
+    // {% if request.cookies.get("theme") != None %}
+    // theme = "{{request.cookies.get('theme')}}" ;
+    // {% endif %}
 
-    var this_url = window.location.href;
+    // console.log(theme);
+
+    var origin_url = window.location.origin;
+    var url = window.location.href;
 
     $(document).ready(function(){
 
       console.log($.ajax);
 
-      theme = parseInt( document.getElementById("theme").innerText );
-      toggle_theme(theme);
+      theme = document.getElementById("current-theme").innerText;
+      // console.log("current-theme: " + theme);
+      init_theme();
 
       M.AutoInit();
 
-
-      console.log(this_url);
+      // console.log(this_url);
     });
-
 
     function add_pulse(btn){
       btn.classList.add("pulse");
-    }
 
-    function remove_pulse(btn){
-      btn.classList.remove("pulse");
+      setTimeout(function() {
+        btn.classList.remove("pulse");
+      }, 500);
+
     }
 
     function copy_to_clipboard(text) {
@@ -73,140 +95,84 @@
 
     }
 
-    function toggle_theme(id){
+    function init_theme(t=0){
 
-      if (id == null)
-      {
-        console.log("theme before switch " + theme);
-        theme = theme * -1;
-        console.log("theme after switch " + theme);
-      }
-      else
-      {
-        theme = id * 1;
-      }
+      var theme_css = document.getElementById("theme-css");
+      theme_css.href = "../static/css/"+theme+".css";
 
-      var url = this_url + "theme" ;
-      var data = {theme: theme};
-      console.log(data);
-
-
-      $.ajax({
-        type: "POST",
-        url: url,
-        data: data,
-        dataType: "json"
-      });
-
-      var dm = document.getElementsByClassName("dark-mode")[0];
-      var lm = document.getElementsByClassName("light-mode")[0];
-      var canvas = document.getElementById("canvas");
       var icon = document.getElementById("theme-icon");
       var theme_text = document.getElementById("theme-text");
-      var theme_btn = document.getElementById("theme-btn");
-      var logo = document.getElementById("logo");
-      var logo_text = document.getElementById("logo-text");
-      var us1988 = document.getElementById("US1988");
+      var canvas = document.getElementsByTagName("canvas")[0];
 
-      var nav_btns = document.getElementsByClassName("nav-btn");
-
-      //dark mode
-      if (theme < 0)
+      if (theme == "dark")
       {
-        dm.id = "fs";
-        lm.id = "fsx";
-
-        us1988.classList.add("white-text");
-        us1988.classList.remove("black-text");
-
         icon.classList.add("mdi-brightness-5");
         icon.classList.remove("mdi-brightness-3");
 
-        theme_text.innerText = "Light Theme";
+        theme_text.innerText = "Light Mode";
 
-        logo.classList.add("logo-dm");
-        logo.classList.remove("logo-lm");
-
-        logo_text.classList.add("white-text");
-        logo_text.classList.remove("black-text");
-
-        for (i = 0; i < nav_btns.length; i++) {
-          nav_btns[i].classList.add("black");
-          nav_btns[i].classList.add("waves-cyan");
-          nav_btns[i].classList.add("white-text");
-          nav_btns[i].classList.add("hover-cyan");
-
-          nav_btns[i].classList.remove("hover-white");
-          nav_btns[i].classList.remove("black-text");
-          nav_btns[i].classList.remove("waves-black");
-          nav_btns[i].classList.remove("cyan");
-          nav_btns[i].classList.remove("accent-3");
-        } 
-
-        theme_btn.classList.remove("black");
-        theme_btn.classList.remove("waves-cyan");
-        theme_btn.classList.remove("white-text");
-        theme_btn.classList.remove("hover-cyan");
-        theme_btn.classList.add("hover-white");
-        theme_btn.classList.add("black-text");
-        theme_btn.classList.add("waves-black");
-        theme_btn.classList.add("cyan");
-        theme_btn.classList.add("accent-3");
+        canvas.classList.remove("canvas-in");
+        canvas.classList.add("canvas-out");
+        setTimeout(function() {
+          document.getElementsByClassName("dark-mode")[0].id = "fs";
+          document.getElementsByClassName("light-mode")[0].id = "fsx";
+          init();
+          canvas.classList.remove("canvas-out");
+          canvas.classList.add("canvas-in");
+        }, t);
       }
-
-      //light mode
-      if (theme > 0)
+      else
       {
-        dm.id = "fsx";
-        lm.id = "fs";
-
-        us1988.classList.add("black-text");
-        us1988.classList.remove("white-text");
-
         icon.classList.add("mdi-brightness-3");
         icon.classList.remove("mdi-brightness-5");
 
-        theme_text.innerText = "Dark Theme";
+        theme_text.innerText = "Dark Mode";
 
-        logo.classList.add("logo-lm");
-        logo.classList.remove("logo-dm");
-
-        logo_text.classList.add("black-text");
-        logo_text.classList.remove("white-text");
-
-        for (i = 0; i < nav_btns.length; i++) {
-          nav_btns[i].classList.remove("black");
-          nav_btns[i].classList.remove("waves-cyan");
-          nav_btns[i].classList.remove("white-text");
-          nav_btns[i].classList.remove("hover-cyan");
-
-          nav_btns[i].classList.add("hover-white");
-          nav_btns[i].classList.add("black-text");
-          nav_btns[i].classList.add("waves-black");
-          nav_btns[i].classList.add("cyan");
-          nav_btns[i].classList.add("accent-3");
-        } 
-
-        theme_btn.classList.add("black");
-        theme_btn.classList.add("waves-cyan");
-        theme_btn.classList.add("white-text");
-        theme_btn.classList.add("hover-cyan");
-        theme_btn.classList.remove("hover-white");
-        theme_btn.classList.remove("black-text");
-        theme_btn.classList.remove("waves-black");
-        theme_btn.classList.remove("cyan");
-        theme_btn.classList.remove("accent-3");
-
+        canvas.classList.remove("canvas-in");
+        canvas.classList.add("canvas-out");
+        setTimeout(function() {
+          document.getElementsByClassName("dark-mode")[0].id = "fsx";
+          document.getElementsByClassName("light-mode")[0].id = "fs";
+          init();
+          canvas.classList.remove("canvas-out");
+          canvas.classList.add("canvas-in");
+        }, t);
       }
 
-      canvas.classList.remove("canvas-in");
-      canvas.classList.add("canvas-out");
-      setTimeout(function() {
-        init();
-        canvas.classList.remove("canvas-out");
-        canvas.classList.add("canvas-in");
-      }, 500);
-      
+    }
+
+    function toggle_theme(){
+
+      if (theme == "dark")
+      {
+        theme = "light";
+      }
+      else
+      {
+        theme = "dark";
+      }
+
+
+      //this will be the page we re_render
+      page = url.replace(origin_url,"").replace("/","")
+      if (page == "")
+      {
+        page = "index";
+      }
+
+      var data = {theme: theme, page: page };
+      console.log(data);
+
+      $.ajax({
+        type: "POST",
+        url: origin_url + "/theme",
+        data: data,
+        // success: setTimeout(function() { document.location.reload();}, 500),
+        success:  init_theme(t=500),
+        dataType: "json"
+      });
+
+            
 
     }
 
@@ -215,13 +181,15 @@
 </head>
 <body>
 
-
-
-  {% if request.cookies.get("theme") != None %}
-  <div id="theme" class="display-none">{{request.cookies.get("theme")}}</div>
+  
+  {% if request.cookies.get("theme") == "light" %}
+  <div id="current-theme" class="display-none">light</div>
   {% else %}
-  <div id="theme" class="display-none">-1</div>
+  <div id="current-theme" class="display-none">dark</div>
   {% endif %}
+  <!-- <div>{{ request.cookies.get("theme") }}</div> -->
+  
+
 
   <!-- ##### topography graphic #####  -->
   <canvas id="canvas" class="canvas-in" ></canvas>
@@ -656,7 +624,8 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
               start_time  : getTime(), 
               time        : 0, 
               screenWidth : 0, 
-              screenHeight: 0 
+              screenHeight: 0,
+              // theme :  theme_sh,
             };
 
     init();
@@ -779,7 +748,7 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
 
       if ( !currentProgram ) return;
 
-
+      
       //parameters.time = new Date().getTime() - parameters.start_time;
       parameters.time = getTime();
 
@@ -812,38 +781,38 @@ return 105.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
 
   <div class="nav-grid main-grid-item ">
 
-    <div class="nav-head">
+    <a href="{{url_for('index')}}" class="nav-head">
 
       <div class="nav-head-btn waves-effect waves-cyan btn ">
         <img id="logo" class="logo-dm"></img>
-        <span id="logo-text" class="white-text">Justin Garza</span>
+        <span id="logo-text" class="text-color">Justin Garza</span>
       </div>
 
-    </div>
+    </a>
 
-    <div class="nav-btn nav-item waves-effect waves-cyan btn black hover-cyan z-depth-4 nav-btn-head">
+    <a href="{{url_for('index')}}" class="nav-btn nav-item waves-effect waves-color btn btn-color hover-color text-color z-depth-4 nav-btn-head">
       <i class="mdi mdi-account-circle"></i>
       <span>Justin Garza</span>
-    </div>
+    </a>
 
-    <div class="nav-btn nav-item waves-effect waves-cyan btn black hover-cyan z-depth-4">
+    <a href="{{url_for('resume')}}" class="nav-btn nav-item waves-effect waves-color btn btn-color hover-color text-color z-depth-4">
       <i class="mdi mdi-file-document"></i>
       <span>Resume</span>
-    </div>
+    </a>
 
-    <div class="nav-btn nav-item waves-effect waves-cyan btn black hover-cyan z-depth-4">
+    <a href="{{url_for('portfolio')}}" class="nav-btn nav-item waves-effect waves-color btn btn-color hover-color text-color z-depth-4">
       <i class="mdi mdi-folder"></i>
       <span>Portfolio</span>
-    </div>
+    </a>
 
-    <div class="nav-btn nav-item waves-effect waves-cyan btn black hover-cyan z-depth-4">
+    <a class="nav-btn nav-item waves-effect waves-color btn btn-color hover-color text-color z-depth-4">
       <i class="mdi mdi-email"></i>
       <span>Contact</span>
-    </div>
+    </a>
 
     <div class="nav-spacer-lg-md"></div>
 
-    <button onclick="toggle_theme()" id="theme-btn" class="nav-btn nav-item waves-effect hover-white black-text waves-black cyan accent-3 z-depth-4">
+    <button onclick="toggle_theme()" id="theme-btn" class="nav-btn nav-item waves-effect hover-color-alt text-alt waves-color-alt btn-color-alt z-depth-4">
       <i id="theme-icon" class="mdi mdi-brightness-3"></i>
       <span id="theme-text">Light Theme</span>
     </button> 

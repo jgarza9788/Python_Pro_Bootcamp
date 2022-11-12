@@ -1,0 +1,813 @@
+[
+    {
+        name: "github-scraper",
+        link: "https://github.com/jgarza9788/github-scraper",
+        tags: [
+            "Python",
+        ],
+        desc: "scrapes all my public github projects using python and selenium!",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "stable-diffusion-webui",
+        link: "https://github.com/jgarza9788/stable-diffusion-webui",
+        tags: [
+            "Python",
+            "JavaScript",
+            "CSS",
+            "Other",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+            {
+                icon: "mdi-square-rounded",
+                tooltip: "Other",
+            },
+        ],
+    },
+    {
+        name: "Python_Pro_Bootcamp",
+        link: "https://github.com/jgarza9788/Python_Pro_Bootcamp",
+        tags: [
+            "Jupyter Notebook",
+            "CSS",
+            "Python",
+            "HTML",
+            "JavaScript",
+            "SCSS",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-circle",
+                tooltip: "Jupyter Notebook/Lab",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-square-rounded",
+                tooltip: "SCSS",
+            },
+        ],
+    },
+    {
+        name: "recipes",
+        link: "https://github.com/jgarza9788/recipes",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "VPNTools",
+        link: "https://github.com/jgarza9788/VPNTools",
+        tags: [
+            "Python",
+            "Batchfile",
+            "PowerShell",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-console",
+                tooltip: "Batchfile",
+            },
+            {
+                icon: "mdi-powershell",
+                tooltip: "PowerShell",
+            },
+        ],
+    },
+    {
+        name: "PyRoboCopy",
+        link: "https://github.com/jgarza9788/PyRoboCopy",
+        tags: [
+            "Python",
+            "Jupyter Notebook",
+            "PowerShell",
+            "Batchfile",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-circle",
+                tooltip: "Jupyter Notebook/Lab",
+            },
+            {
+                icon: "mdi-powershell",
+                tooltip: "PowerShell",
+            },
+            {
+                icon: "mdi-console",
+                tooltip: "Batchfile",
+            },
+        ],
+    },
+    {
+        name: "jgarza9788",
+        link: "https://github.com/jgarza9788/jgarza9788",
+        tags: [],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [],
+    },
+    {
+        name: "ASIF",
+        link: "https://github.com/jgarza9788/ASIF",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "jgarza-blog",
+        link: "https://github.com/jgarza9788/jgarza-blog",
+        tags: [
+            "JavaScript",
+            "HTML",
+            "SCSS",
+            "CSS",
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-square-rounded",
+                tooltip: "SCSS",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "personal_financial_report-public_version-",
+        link: "https://github.com/jgarza9788/personal_financial_report-public_version-",
+        tags: [
+            "Jupyter Notebook",
+            "Batchfile",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-circle",
+                tooltip: "Jupyter Notebook/Lab",
+            },
+            {
+                icon: "mdi-console",
+                tooltip: "Batchfile",
+            },
+        ],
+    },
+    {
+        name: "VAERS",
+        link: "https://github.com/jgarza9788/VAERS",
+        tags: [
+            "Jupyter Notebook",
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-circle",
+                tooltip: "Jupyter Notebook/Lab",
+            },
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "clean_jellyfin_images",
+        link: "https://github.com/jgarza9788/clean_jellyfin_images",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "autoHandbreak",
+        link: "https://github.com/jgarza9788/autoHandbreak",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: ".config",
+        link: "https://github.com/jgarza9788/.config",
+        tags: [
+            "PowerShell",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-powershell",
+                tooltip: "PowerShell",
+            },
+        ],
+    },
+    {
+        name: "cs_analyzer",
+        link: "https://github.com/jgarza9788/cs_analyzer",
+        tags: [
+            "C#",
+            "Python",
+            "TypeScript",
+            "JavaScript",
+            "HTML",
+            "CSS",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-csharp",
+                tooltip: "C#",
+            },
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-language-typescript",
+                tooltip: "TypeScript",
+            },
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+        ],
+    },
+    {
+        name: "WindowsFormsApp_helloworld",
+        link: "https://github.com/jgarza9788/WindowsFormsApp_helloworld",
+        tags: [
+            "C#",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-csharp",
+                tooltip: "C#",
+            },
+        ],
+    },
+    {
+        name: "blacktree",
+        link: "https://github.com/jgarza9788/blacktree",
+        tags: [
+            "Python",
+            "Batchfile",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-console",
+                tooltip: "Batchfile",
+            },
+        ],
+    },
+    {
+        name: "Olive_4Up_Template",
+        link: "https://github.com/jgarza9788/Olive_4Up_Template",
+        tags: [],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [],
+    },
+    {
+        name: "streamlit_tutorials_and_demos",
+        link: "https://github.com/jgarza9788/streamlit_tutorials_and_demos",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "blockedsite",
+        link: "https://github.com/jgarza9788/blockedsite",
+        tags: [
+            "HTML",
+            "CSS",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+        ],
+    },
+    {
+        name: "Rainy",
+        link: "https://github.com/jgarza9788/Rainy",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "quark",
+        link: "https://github.com/jgarza9788/quark",
+        tags: [
+            "JavaScript",
+            "CSS",
+            "HTML",
+            "Shell",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-console",
+                tooltip: "Shell",
+            },
+        ],
+    },
+    {
+        name: "desktoplist",
+        link: "https://github.com/jgarza9788/desktoplist",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "wordle_filter",
+        link: "https://github.com/jgarza9788/wordle_filter",
+        tags: [
+            "Python",
+            "Batchfile",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-console",
+                tooltip: "Batchfile",
+            },
+        ],
+    },
+    {
+        name: "wordlegame",
+        link: "https://github.com/jgarza9788/wordlegame",
+        tags: [
+            "Python",
+            "Batchfile",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-console",
+                tooltip: "Batchfile",
+            },
+        ],
+    },
+    {
+        name: "MovieRoulette",
+        link: "https://github.com/jgarza9788/MovieRoulette",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "MyAutoHotKeyScript",
+        link: "https://github.com/jgarza9788/MyAutoHotKeyScript",
+        tags: [
+            "AutoHotkey",
+            "VBScript",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-square-rounded",
+                tooltip: "AutoHotkey",
+            },
+            {
+                icon: "mdi-script",
+                tooltip: "VBScript",
+            },
+        ],
+    },
+    {
+        name: "NewTabPage",
+        link: "https://github.com/jgarza9788/NewTabPage",
+        tags: [
+            "JavaScript",
+            "CSS",
+            "HTML",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+        ],
+    },
+    {
+        name: "HackerRankCode",
+        link: "https://github.com/jgarza9788/HackerRankCode",
+        tags: [
+            "Python",
+            "Java",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-language-java",
+                tooltip: "Java",
+            },
+        ],
+    },
+    {
+        name: "powershell",
+        link: "https://github.com/jgarza9788/powershell",
+        tags: [
+            "PowerShell",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-powershell",
+                tooltip: "PowerShell",
+            },
+        ],
+    },
+    {
+        name: "github-scraper",
+        link: "https://github.com/jgarza9788/github-scraper",
+        tags: [
+            "Python",
+        ],
+        desc: "scrapes all my public github projects using python and selenium!",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "stable-diffusion-webui",
+        link: "https://github.com/jgarza9788/stable-diffusion-webui",
+        tags: [
+            "Python",
+            "JavaScript",
+            "CSS",
+            "Other",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+            {
+                icon: "mdi-square-rounded",
+                tooltip: "Other",
+            },
+        ],
+    },
+    {
+        name: "Python_Pro_Bootcamp",
+        link: "https://github.com/jgarza9788/Python_Pro_Bootcamp",
+        tags: [
+            "Jupyter Notebook",
+            "CSS",
+            "Python",
+            "HTML",
+            "JavaScript",
+            "SCSS",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-circle",
+                tooltip: "Jupyter Notebook/Lab",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-square-rounded",
+                tooltip: "SCSS",
+            },
+        ],
+    },
+    {
+        name: "flutter_dicey",
+        link: "https://github.com/jgarza9788/flutter_dicey",
+        tags: [
+            "Dart",
+            "HTML",
+            "Objective-C",
+            "Java",
+            "Shell",
+            "Swift",
+            "Kotlin",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-bird",
+                tooltip: "Flutter/Dart",
+            },
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-square-rounded",
+                tooltip: "Objective-C",
+            },
+            {
+                icon: "mdi-language-java",
+                tooltip: "Java",
+            },
+            {
+                icon: "mdi-console",
+                tooltip: "Shell",
+            },
+            {
+                icon: "mdi-language-swift",
+                tooltip: "Swift",
+            },
+            {
+                icon: "mdi-language-kotlin",
+                tooltip: "Kotlin",
+            },
+        ],
+    },
+    {
+        name: "fairsource",
+        link: "https://github.com/jgarza9788/fairsource",
+        tags: [
+            "HTML",
+            "CSS",
+            "Makefile",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-language-css3",
+                tooltip: "CSS",
+            },
+            {
+                icon: "mdi-square-rounded",
+                tooltip: "Makefile",
+            },
+        ],
+    },
+    {
+        name: "threejs-webgl-scrolling-images",
+        link: "https://github.com/jgarza9788/threejs-webgl-scrolling-images",
+        tags: [
+            "JavaScript",
+            "HTML",
+            "GLSL",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-javascript",
+                tooltip: "JavaScript",
+            },
+            {
+                icon: "mdi-language-html5",
+                tooltip: "HTML",
+            },
+            {
+                icon: "mdi-gradient-horizontal",
+                tooltip: "GLSL/ShaderLab",
+            },
+        ],
+    },
+    {
+        name: "contact_converter",
+        link: "https://github.com/jgarza9788/contact_converter",
+        tags: [
+            "Python",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-python",
+                tooltip: "Python",
+            },
+        ],
+    },
+    {
+        name: "Unity3D-Shaders-Basic",
+        link: "https://github.com/jgarza9788/Unity3D-Shaders-Basic",
+        tags: [
+            "ShaderLab",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-gradient-horizontal",
+                tooltip: "GLSL/ShaderLab",
+            },
+        ],
+    },
+    {
+        name: "FontAppCSharp",
+        link: "https://github.com/jgarza9788/FontAppCSharp",
+        tags: [
+            "C#",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-csharp",
+                tooltip: "C#",
+            },
+        ],
+    },
+    {
+        name: "FontApp",
+        link: "https://github.com/jgarza9788/FontApp",
+        tags: [
+            "Java",
+        ],
+        desc: "sorry, i haven't writting a description yet.",
+        icons: [
+            {
+                icon: "mdi-language-java",
+                tooltip: "Java",
+            },
+        ],
+    },
+]
