@@ -4,6 +4,7 @@ downloaded_resources/
 *.pdf
 *config.json
 *private_variables.py
+*secret_key.txt
 
 *tempCodeRunnerFile.py
 
