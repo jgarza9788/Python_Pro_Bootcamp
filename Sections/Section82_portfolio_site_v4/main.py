@@ -1,4 +1,6 @@
 
+
+
 #basic stuff
 import os
 DIR = os.path.dirname(os.path.realpath(__file__))
@@ -152,6 +154,16 @@ def contact():
 
 
 if __name__ == "__main__":
+
+    # prep work
+    from github_scrapper import get_github
+    ggh = get_github(repo_link="https://github.com/stars/jgarza9788/lists/portfolio",visible=False)
+    ggh.scrape()
+
+    from portfolio import process_portfolio
+    process_portfolio()
+
+
     # app.debug = True
     # app.run()
     # app.run(host='0.0.0.0', port=5000)

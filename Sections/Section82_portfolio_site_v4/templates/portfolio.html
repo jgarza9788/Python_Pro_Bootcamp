@@ -3,6 +3,7 @@
 {% block content %}
 
 
+
 <style>
 
 .main-portfolio-grid{
@@ -102,6 +103,7 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 20rem;
     gap: 2.5rem;
     padding: 2.5rem;
 
@@ -148,15 +150,41 @@
     grid-template-columns: auto;
     grid-template-rows: 3rem 3fr 0.2fr 3rem 3rem ;
     grid-row: 0;
+
+    overflow: hidden;
+    
+}
+
+
+.card-info a{
+    text-align: left;
+
+    width: 100%;
+
+
 }
 
 .card-info h5,
-.card-info p,
-.card-info a{
+.card-info p{
     text-align: left;
+
+    width: 100%;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-word;
+
 }
 
+
+
 .card-info p{
+    /* word-wrap: break-word; */
+    /* white-space:normal; */
+    width: 100%;
     font-size: 1.25rem;
 }
 
@@ -164,16 +192,61 @@
     font-size: 1.5rem !important;
 }
 
-.project-icons{
+.project-tags{
 
-      text-align: left;
+    text-align: left;
+    white-space: nowrap;
+    /* overflow: overlay; */
+    /* text-overflow: overlay; */
+    text-overflow: clip;
+    overflow-x: scroll !important;
+    
+    line-height: 0.8 !important;
+    /* IE and Edge */
+    -ms-overflow-style: none;  
+    /* Firefox */
+    scrollbar-width: none;  
+
+
 }
 
-.project-icons a{
-    font-size: 1.5rem;
-    /* line-height: 1rem; */
-    line-height: 100%;
+.project-tags::-webkit-scrollbar {
+    /* display: none;  */
+
+    height: 0.0rem;
+    background-color: rgba(255,255,255,0.25);
+    border-radius: 1rem;
+
+    transition-duration: 0.7s !important;
+    transition-timing-function: ease-in-out !important;
+}
+
+.project-tags:hover.project-tags::-webkit-scrollbar {
+    height: 0.75rem;
+    background-color: rgba(255,255,255,0.25);
+    border-radius: 1rem;
+}
+
+.project-tags::-webkit-scrollbar-thumb {
+    background-color: #757575;
+    border-radius: 1rem;
+}
+
+
+.project-tags span{
+    font-size: 1rem !important;
+
     vertical-align: middle;
+
+    padding: 0 0.35rem;
+    margin: 0.35rem 0.00rem !important;
+    
+}
+
+.action-btns{
+    display: flex;
+    flex-direction: row;
+
 }
 
 .btn-flat{
@@ -188,6 +261,7 @@
 }
 
 .btn-flat span{
+    font-size: 1rem !important;
     line-height: 3rem !important;
     vertical-align: middle !important;
 }
@@ -199,6 +273,7 @@
     vertical-align: middle !important;
 }
 
+
 .btn-flat:hover{
     background-color: rgba(255,255,255,0.3);
 }
@@ -209,14 +284,6 @@
     background-color: transparent   !important;    
 }
 
-.badge{
-    padding: 0 0.5rem !important;
-    background-color: #666666;
-    color: white !important;
-    border-radius: 0.25rem;
-
-    display: inline-block;
-}
 
 </style>
 
@@ -224,8 +291,10 @@
 
     let s = document.getElementById("search-input");
 
+
     $(document).ready(function(){
         s = document.getElementById("search-input");
+
     });
 
 
@@ -239,31 +308,19 @@
     }
 
     function on_search(){
-
         console.log(s.value);
-
-        // var data = {query: s.value.toString()};
-        // console.log(data);
-        // console.log(window.location.href);
         console.log(window.location.origin + "/portfolio/" + s.value);
         
-
         setTimeout(function(){
 
             window.location =  window.location.origin + "/portfolio/" + s.value;
-
-                // $.ajax({
-                // type: "GET",
-                // url: window.location.href + "?q" + s.values,
-                // data: data,
-                // success: console.log("done"),
-                // dataType: "json"
-                // });
 
             }
             ,500
         );
     }
+
+
 
 </script>
 
@@ -276,32 +333,58 @@
     </div>
 
     <div class="project-grid">
+
     {% for p in portfolio_data%}
         <div class="project-card z-depth-4 card-color" style="background-image: url('{{ p.background }}');">
 
             <div class="card-info text-color">
                 <h5>{{p.name}}</h5>
-                <p> 
-                    {{p.desc}}
-                </p>
+                <p>{{p.desc}}</p>
                 <div class="spacer"> </div>
-                <span class="project-icons text-color"> 
-
-                    {% for i in p.icons%}
-                    <i class="text-color tooltipped mdi {{i.icon}}" data-position="bottom" data-tooltip="{{i.tooltip}}"></i>
+                
+                <span class="project-tags text-color"> 
+                    {% for t in p.tags%}
+                    <span class="text-color">{{t}}</span>
                     {% endfor %}
+                </span> 
 
-                </span>
+                <div class="action-btns">
+                    <a class="btn-flat waves-effect waves-color text-color" href="{{p.link}}" target="_blank"> 
+                        <i class="text-color mdi mdi-github"></i>
+                        <span class="text-color">
+                            view on github
+                        </span>
+                    </a>
 
-                <a class="btn-flat waves-effect waves-color text-color" href="{{p.link}}" target="_blank"> 
-                    <i class="text-color tooltipped mdi mdi-github" data-position="bottom" data-tooltip="GitHub"></i>
-                    <span>view on github</span>
-                </a>
+                    {% if p.video != None%}
+                    <a class="btn-flat waves-effect waves-color text-color" href="{{p.video}}" target="_blank"> 
+                        <i class="text-color mdi mdi-youtube"></i>
+                        <span class="text-color">
+                            view on youtube
+                        </span>
+                    </a>
+                    {% endif %}
+
+                    {% if p.demo != None%}
+                    <a class="btn-flat waves-effect waves-color text-color" href="{{p.demo}}" target="_blank"> 
+                        <i class="text-color mdi mdi-play-circle"></i>
+                        <span class="text-color">
+                            play web-demo
+                        </span>
+                    </a>
+                    {% endif %}
+
+
+
+                </div>
 
             </div>
 
         </div>
     {% endfor %}
+
+
+
     </div>
 </div>
 
